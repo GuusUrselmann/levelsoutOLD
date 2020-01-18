@@ -1,0 +1,256 @@
+@import 'variables';
+
+/*Components*/
+/*Profile*/
+.block.profile {
+    width: 100%;
+    .profile-info {
+        width: 100%;
+        display: block;
+        .info-image {
+            width: 100px;
+            height: 110px;
+            padding: 25px 0px 5px 10px;
+            display: inline-block;
+            vertical-align: top;
+            .image-inner {
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+            }
+        }
+        .info {
+            width: calc(100% - 100px);
+            height: 110px;
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px 5px 5px 15px;
+            .info-name {
+                font-size: 21px;
+                letter-spacing: .075em;
+                padding-left: 3px;
+            }
+            .info-description {
+                width: 100%;
+                height: 40px;
+                margin-top: 15px;
+                font-size: 13px;
+                line-height: 20px;
+                overflow: hidden;
+            }
+        }
+    }
+    .profile-level {
+        width: 100%;
+        margin-top: 15px;
+        padding: 0px 15px;
+        .level-top {
+            width: 100%;
+            height: 20px;
+            display: block;
+            line-height: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            .level-level {
+                width: 50%;
+                text-align: left;
+                display: inline-block;
+                vertical-align: top;
+                color: $grey-med;
+            }
+            .level-experience {
+                width: 50%;
+                text-align: right;
+                display: inline-block;
+                vertical-align: top;
+                color: $grey-med;
+            }
+        }
+        .level-bar {
+            width: 100%;
+            .bar-outer {
+                width: 100%;
+                height: 5px;
+                background-color: $grey-light;
+                border-radius: 7.5px;
+                .bar-inner {
+                    width: 25%;
+                    height: 100%;
+                    background-color: $green-light;
+                    border-radius: 7.5px;
+                }
+            }
+        }
+    }
+}
+
+/*Task Card*/
+.block.taskcard {
+    width: 100%;
+    padding: 20px 10px;
+    .card {
+        width: 100%;
+        border-radius: 10px;
+        background-color: $green-light;
+        box-shadow: 0 5px 10px -3px #575757;
+        .card-top {
+            width: calc(100% - 20px);
+            height: 25px;
+            margin: 0px 10px;
+            border-bottom: 1px solid $green-light-cover;
+            display: block;
+            .card-name {
+                padding-right: 10px;
+                color: $grey-med;
+                line-height: 25px;
+                font-size: 14px;
+                display: inline-block;
+                vertical-align: top;
+            }
+            .card-time {
+                color: $grey-med;
+                line-height: 25px;
+                padding-top: 1px;
+                font-size: 11.5px;
+                display: inline-block;
+                vertical-align: top;
+            }
+            .card-page {
+                float: right;
+                line-height: 25px;
+                color: $grey-med;
+                font-size: 14px;
+                text-align: right;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+        .card-body {
+            width: calc(100% - 20px);
+            margin: auto;
+            padding: 10px 0px;
+            .card-question {
+                width: 100%;
+                color: #fff;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .card-description {
+                width: 100%;
+                color: #000;
+                font-size: 15px;
+                padding: 0px 5px;
+            }
+            .card-action {
+                width: 100%;
+                height: 30px;
+                margin-top: 10px;
+                .action-button {
+                    width: 140px;
+                    height: 30px;
+                    background-color: #fff;
+                    color: #000;
+                    border-radius: 10px;
+                    line-height: 30px;
+                    font-size: 16px;
+                    text-align: center;
+                    float: right;
+                    transition: background-color .1s ease-in-out;
+                    &:hover {
+                        background-color: $grey-light;
+                        cursor: pointer;
+                    }
+                    &:active {
+                        background-color: $grey-light;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Activity Feed*/
+.block.activityfeed {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    .activityfeed-header {
+        width: 100%;
+        height: 45px;
+        line-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        display: block;
+        border-top: 1px solid $grey-light;
+        border-bottom: 1px solid $grey-light;
+        .header-tab {
+            width: calc(100% / 3);
+            height: 100%;
+            display: inline-block;
+            font-size: 15px;
+            text-align: center;
+        }
+        .header-current {
+            width: calc(100% / 3);
+            height: 3px;
+            position: relative;
+            background-color: #000;
+            transition: margin-left .2s ease-in-out;
+        }
+    }
+    .activity {
+        width: 100%;
+        height: 400px;
+        color: #000;
+        overflow-x: hidden;
+        border-bottom: 1px solid $grey-light;
+        .tabs {
+            width: 300%;
+            height: 400px;
+            transition: margin-left .2s ease-in-out;
+            overflow: hidden;
+            .tab {
+                width: calc(100% / 3);
+                height: 400px;
+                float:left;
+                overflow-y: auto;
+                .timeline {
+                    width: 100%;
+                    .timeline-activity {
+                        width: 100%;
+                        border-bottom: 1px solid $grey-light;
+                        margin-bottom: 5px;
+                        padding-bottom: 10px;
+                        .activity-header {
+                            width: 100%;
+                            height: 35px;
+                            .header-timestamp {
+                                height: 35px;
+                                float: left;
+                                line-height: 35px;
+                                color: $grey-med;
+                            }
+                            .header-options {
+                                height: 35px;
+                                float: right;
+                                padding-right: 10px;
+                                line-height: 35px;
+                                color: $grey-med;
+                            }
+                        }
+                        .activity-body {
+                            .activity-image {
+                                width: 100%;
+                                height: 300px;
+                            }
+                        }
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

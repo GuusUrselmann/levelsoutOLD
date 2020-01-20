@@ -12,8 +12,10 @@
                 return '<?= url('') ?>';
             }
         </script>
+        <script type="text/javascript" src="{{ asset('js/GuestBehaviour.js') }}" defer="defer"></script>
+
         <link href="https://fonts.googleapis.com/css?family=Assistant&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
         <link href="{{ asset('fonts/fontawesome-free-5.3.1-web/css/all.min.css') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/layout_guest.css') }}" rel="stylesheet" type="text/css" >

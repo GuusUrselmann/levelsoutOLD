@@ -14,6 +14,8 @@ const mix = require('laravel-mix');
 mix.react('resources/js/app.jsx', 'public/js')
     .react('resources/js/AppHomeControl.jsx', 'public/js')
     .react('resources/js/GuestHomeControl.jsx', 'public/js')
+    .js('resources/js/AppBehaviour.js', 'public/js')
+    .js('resources/js/GuestBehaviour.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/layout_app.scss', 'public/css')
     .sass('resources/sass/layout_guest.scss', 'public/css')

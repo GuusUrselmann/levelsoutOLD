@@ -227,7 +227,6 @@
 .block.activityfeed .activityfeed-header .header-current {
   width: calc(100% / 3);
   height: 3px;
-  position: relative;
   background-color: #000;
   -webkit-transition: margin-left 0.2s ease-in-out;
   transition: margin-left 0.2s ease-in-out;

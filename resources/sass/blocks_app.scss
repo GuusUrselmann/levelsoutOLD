@@ -194,7 +194,6 @@
         .header-current {
             width: calc(100% / 3);
             height: 3px;
-            position: relative;
             background-color: #000;
             transition: margin-left .2s ease-in-out;
         }

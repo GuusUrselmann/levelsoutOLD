@@ -161,6 +161,10 @@
   .page-container.register .container-inner .signup-container .app-signup .signup-inner .form.signup .form-row .form-input.signup-remember span {
     color: #1f1f1f;
   }
+
+  .page-container.register .container-inner .signup-container .app-signup .signup-inner .form.signup .alt-buttons {
+    color: #1f1f1f;
+  }
 }
 
 /*==============================*/

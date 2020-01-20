@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="login-title">
-                LOGIN
+                Login
             </div>
             <div class="app-login">
                 <div class="login-inner">

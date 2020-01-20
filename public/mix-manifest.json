@@ -1,11 +1,13 @@
 {
-    "/js/AppHomeControl.js": "/js/AppHomeControl.js",
-    "/js/GuestHomeControl.js": "/js/GuestHomeControl.js",
-    "/js/app.js": "/js/app.js",
+    "/js/AppBehaviour.js": "/js/AppBehaviour.js",
     "/css/app.css": "/css/app.css",
     "/css/layout_app.css": "/css/layout_app.css",
     "/css/layout_guest.css": "/css/layout_guest.css",
     "/css/responsive_guest.css": "/css/responsive_guest.css",
     "/css/blocks_app.css": "/css/blocks_app.css",
-    "/css/blocks_guest.css": "/css/blocks_guest.css"
+    "/css/blocks_guest.css": "/css/blocks_guest.css",
+    "/js/AppHomeControl.js": "/js/AppHomeControl.js",
+    "/js/GuestBehaviour.js": "/js/GuestBehaviour.js",
+    "/js/GuestHomeControl.js": "/js/GuestHomeControl.js",
+    "/js/app.js": "/js/app.js"
 }

@@ -13,7 +13,7 @@
 Auth::routes();
 
 Route::get('/', 'Guest\GuestHomeController@home');
-Route::get('/home', 'Guest\GuestHomeController@home');
+Route::get('/home', 'App\AppHomeController@home');
 Route::get('/about', 'Guest\GuestHomeController@about');
 Route::get('/termsofservice', 'Guest\GuestHomeController@termsofservice');
 Route::get('/privacypolicy', 'Guest\GuestHomeController@privacypolicy');

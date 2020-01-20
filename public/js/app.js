@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -37135,86 +37135,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/blocks_app.scss":
-/*!****************************************!*\
-  !*** ./resources/sass/blocks_app.scss ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/blocks_guest.scss":
-/*!******************************************!*\
-  !*** ./resources/sass/blocks_guest.scss ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/layout_app.scss":
-/*!****************************************!*\
-  !*** ./resources/sass/layout_app.scss ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/layout_guest.scss":
-/*!******************************************!*\
-  !*** ./resources/sass/layout_guest.scss ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/responsive_guest.scss":
-/*!**********************************************!*\
-  !*** ./resources/sass/responsive_guest.scss ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*********************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.jsx ./resources/sass/app.scss ./resources/sass/layout_app.scss ./resources/sass/layout_guest.scss ./resources/sass/responsive_guest.scss ./resources/sass/blocks_app.scss ./resources/sass/blocks_guest.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************/
+/***/ 2:
+/*!************************************!*\
+  !*** multi ./resources/js/app.jsx ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\levelsout\resources\js\app.jsx */"./resources/js/app.jsx");
-__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\layout_app.scss */"./resources/sass/layout_app.scss");
-__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\layout_guest.scss */"./resources/sass/layout_guest.scss");
-__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\responsive_guest.scss */"./resources/sass/responsive_guest.scss");
-__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\blocks_app.scss */"./resources/sass/blocks_app.scss");
-module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\blocks_guest.scss */"./resources/sass/blocks_guest.scss");
+module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\js\app.jsx */"./resources/js/app.jsx");
 
 
 /***/ })

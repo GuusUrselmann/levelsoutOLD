@@ -5,11 +5,11 @@
 .page-container.login {
   overflow-y: auto;
   width: 100%;
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 }
 
 .page-container.login .container-inner {
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 }
 
 .page-container.login .container-inner .app-logo {
@@ -212,11 +212,11 @@
 .page-container.register {
   overflow-y: auto;
   width: 100%;
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 }
 
 .page-container.register .container-inner {
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 }
 
 .page-container.register .container-inner .app-logo {
@@ -331,6 +331,7 @@
   width: 100%;
   text-align: center;
   color: #fff;
+  margin-bottom: 30px;
 }
 
 .page-container.register .container-inner .signup-container .app-signup .signup-inner .alt-buttons a {

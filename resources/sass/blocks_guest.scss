@@ -5,9 +5,9 @@
 .page-container.login {
     overflow-y: auto;
     width: 100%;
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
     .container-inner {
-        height: calc(100vh - 70px);
+        min-height: calc(100vh - 70px);
         .app-logo {
             padding: 50px 0px;
             padding-bottom: 30px;
@@ -192,9 +192,9 @@
 .page-container.register {
     overflow-y: auto;
     width: 100%;
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
     .container-inner {
-        height: calc(100vh - 70px);
+        min-height: calc(100vh - 70px);
         .app-logo {
             padding: 50px 0px;
             padding-bottom: 30px;
@@ -297,6 +297,7 @@
                         width: 100%;
                         text-align: center;
                         color: #fff;
+                        margin-bottom: 30px;
                         a {
                             padding: 3px 20px;
                             font-weight: 600;

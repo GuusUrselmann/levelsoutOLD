@@ -9,7 +9,7 @@
 
   .page-container.login .container-inner {
     padding-top: 65px;
-    background-color: unset;
+    margin-bottom: 0px;
   }
 
   .page-container.login .container-inner .app-logo-full {

@@ -16,11 +16,18 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->text('description')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->integer('experience')->unsigned()->nullable();
             $table->string('password');
+            $table->enum('userlevel', ['member', 'admin', 'owner']);
+            $table->date('dob')->nullable();
+            $table->integer('level_id')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade');
         });
     }
 

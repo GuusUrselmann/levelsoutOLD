@@ -2,9 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import { useSwipeable, Swipeable } from 'react-swipeable';
+import Axios from "axios";
 
 class Profile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tabCurrent: 0,
+            user: ''
+        };
+    }
+    componentDidMount() {
+        Axios.post(url()+'/api/homeprofile', {
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        })
+        .then(response => {
+            this.setState({user: response.data.user});
+        })
+        .catch(error => {
+            console.log(error);
+       });
+       this.setState({isLoading: false});
+    }
+    async getUser() {
+
+    }
     render() {
+        const user = this.state.user;
         const element = (
             <div className="block profile">
                 <div className="profile-info">
@@ -14,7 +38,7 @@ class Profile extends React.Component {
                     </div>
                     <div className="info">
                         <div className="info-name">
-                            Spliffy Johnson
+                            {user.name}
                         </div>
                         <div className="info-description">
                             420 enthousiast!, Nature lover, Peace, Stonner and Traveler #Livin'

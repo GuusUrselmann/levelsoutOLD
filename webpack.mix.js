@@ -12,7 +12,11 @@ const mix = require('laravel-mix');
  */
 
 mix.react('resources/js/app.jsx', 'public/js')
-    .react('resources/js/AppControl.jsx', 'public/js')
+    .react('resources/js/AppHomeControl.jsx', 'public/js')
+    .react('resources/js/GuestHomeControl.jsx', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/layout_app.scss', 'public/css')
-    .sass('resources/sass/blocks_app.scss', 'public/css');
+    .sass('resources/sass/layout_guest.scss', 'public/css')
+    .sass('resources/sass/responsive_guest.scss', 'public/css')
+    .sass('resources/sass/blocks_app.scss', 'public/css')
+    .sass('resources/sass/blocks_guest.scss', 'public/css');

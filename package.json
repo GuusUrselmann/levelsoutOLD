@@ -27,6 +27,7 @@
     "dependencies": {
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
-        "react-swipeable": "^5.5.0"
+        "react-swipeable": "^5.5.0",
+        "use-axios-react": "^0.2.3"
     }
 }

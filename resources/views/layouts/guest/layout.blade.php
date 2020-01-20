@@ -13,14 +13,17 @@
             }
         </script>
         <link href="https://fonts.googleapis.com/css?family=Assistant&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
         <link href="{{ asset('fonts/fontawesome-free-5.3.1-web/css/all.min.css') }}" rel="stylesheet" type="text/css" >
-        <link href="{{ asset('css/layout_app.css') }}" rel="stylesheet" type="text/css" >
-        <link href="{{ asset('css/blocks_app.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/layout_guest.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/blocks_guest.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/responsive_guest.css') }}" rel="stylesheet" type="text/css" >
     </head>
     <body>
         <div class="page-wrapper">
             <header>
-                @include('layouts.app.header')
+                @include('layouts.guest.header')
             </header>
             <main>
                 <div class="page-content" id="pageContent">
@@ -28,7 +31,7 @@
                         @yield('content')
                     </div>
                     <footer>
-                        @include('layouts.app.footer')
+                        @include('layouts.guest.footer')
                     </footer>
                 </div>
             </main>

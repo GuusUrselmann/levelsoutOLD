@@ -1,70 +1,85 @@
-@extends('layouts.app')
+@extends('layouts.guest.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+<div class="page-container login background-cover" style="background-image: url({{asset('/images/backgroundLogin.jpg')}});">
+    <div class="container-inner">
+        <div class="app-logo-full">
+            <div class="logo-title">
+                LEVELS OUT
+            </div>
+            <div class="logo-description">
+                Lorem ipsum dolor sit amet, tempor aliquam at mauris placerat libero, justo penatibus eu lorem.
+            </div>
+        </div>
+        <div class="login-container">
+            <div class="app-logo">
+                <div class="logo-inner">
+                    levels<br/>out
+                </div>
+            </div>
+            <div class="login-title">
+                LOGIN
+            </div>
+            <div class="app-login">
+                <div class="login-inner">
+                    <form method="POST" action="" class="form login">
+                    @csrf
+                        @if ($errors->has('email') || $errors->has('password'))
+                            <div class="form-error">
+                                <div class="invalid-feedback">
+                                    Incorrect email or password, please try again.
                                 </div>
                             </div>
+                        @endif
+                        <div class="form-row">
+                            <div class="form-input login-email">
+                                <input id="email" type="email" placeholder="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                            </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                        <div class="form-row lessspace">
+                            <div class="form-input login-password">
+                                <input id="password" type="password" placeholder="password"  class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                            </div>
+                        </div>
+                        <div class="form-row lessspace">
+                            <div class="form-input login-remember">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <span>remember me</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-input login-submit">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </form>
+                    <div class="login-alt">
+                        <div class="alt-buttons">
+                            <a class="forgot-forgot-button" href="{{url('password/reset')}}">forgot password?</a>
+                            <a class="forgot-create-button" href="{{url('/register')}}">create an account</a>
+                        </div>
+                        <span>- or -</span>
+                    </div>
+                    <div class="login-social">
+                        <div class="social-message">
+                            login via Twitter
+                        </div>
+                        <div class="social-icons">
+                            {{-- <div class="social-button twitter">
+                                <a href="{{url('/auth/twitter')}}">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                            <br><br><br> --}}
+                            {{-- <div class="social-button facebook">
+                                <a href="{{url('/auth/facebook')}}">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div> --}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

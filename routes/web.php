@@ -10,21 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Guest\GuestHomeController@home');
+Route::get('/home', 'Guest\GuestHomeController@home');
+Route::get('/about', 'Guest\GuestHomeController@about');
+Route::get('/termsofservice', 'Guest\GuestHomeController@termsofservice');
+Route::get('/privacypolicy', 'Guest\GuestHomeController@privacypolicy');
+
 Route::group(['prefix'=>'/app'], function () {
     Route::get('/home', 'App\AppHomeController@home');
 
 });
 Route::group(['prefix'=>'/api'], function () {
-    Route::group(['prefix'=>'/users'], function() {
-        Route::get('', 'Api\ApiUsersController@users');
-        Route::get('/{id}', 'Api\ApiUsersController@user');
-    });
+    Route::post('/homeprofile', 'APIController@homeProfile');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

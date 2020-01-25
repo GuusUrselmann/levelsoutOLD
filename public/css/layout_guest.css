@@ -108,6 +108,7 @@ header .header-bar .header-nav .header-menu i:hover {
 header .header-bar .header-nav .header-menu .menu.header {
   width: 80%;
   height: calc(100vh - 45px);
+  max-width: 300px;
   position: absolute;
   margin-left: -80%;
   background-color: #070707;

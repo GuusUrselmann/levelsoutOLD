@@ -93,6 +93,7 @@ header {
                 .menu.header {
                     width: 80%;
                     height: calc(100vh - 45px);
+                    max-width: 300px;
                     position: absolute;
                     margin-left: -80%;
                     background-color: $theme-main;

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Task;
+use App\Level;
+use App\TaskSubmission;
 
 class APIController extends Controller
 {
@@ -20,8 +23,30 @@ class APIController extends Controller
     public function homeProfile()
     {
         $user = Auth::user();
+        $level_step = ceil($user->level()/4)*4-4;
+        $levels = Level::where('level', '>', $level_step)->take(4)->get();
+        $user->setAttribute('level', $user->level());
         $data = [
-            'user' => $user
+            'user' => $user,
+            'levels' => $levels
+        ];
+        return $data;
+    }
+
+    public function homeTasks()
+    {
+        $user = Auth::user();
+        //TODO: Change to check for completed tasks instead of level
+        $tasks = Task::where('level_min', '>=', $user->level())->take(5)->get();
+        $submission = TaskSubmission::where('user_id', $user->id)->where('task_id', $tasks[0]->id)->first();
+        if($submission) {
+            $tasks[0]->setAttribute('submission', $submission);
+        }
+        $complete = Task::where('level_min', '<', $user->level())->get();
+
+        $data = [
+            'tasks' => $tasks,
+            'complete' => $complete
         ];
         return $data;
     }

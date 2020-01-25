@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import {Profile, TaskCard, ActivityFeed} from './components/AppHome.jsx';
+import {Profile, TaskCard, TaskActivity} from './components/AppHome.jsx';
 
 ReactDOM.render(
     <div>
         <Profile />
-        <ActivityFeed />
-        <TaskCard />
+        <TaskActivity />
     </div>,
     document.getElementById('root')
 );

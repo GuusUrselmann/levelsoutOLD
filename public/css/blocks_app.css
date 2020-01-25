@@ -48,53 +48,38 @@
   overflow: hidden;
 }
 
-.block.profile .profile-level {
+.block.profile .profile-levels {
   width: 100%;
+  height: 23px;
   margin-top: 15px;
+  margin-bottom: 7px;
   padding: 0px 15px;
 }
 
-.block.profile .profile-level .level-top {
+.block.profile .profile-levels .level-container {
+  width: 25%;
+  float: left;
+}
+
+.block.profile .profile-levels .level-container .level-top {
   width: 100%;
   height: 20px;
-  display: block;
-  line-height: 20px;
+  padding-left: 5px;
+  line-height: 10px;
   font-size: 12px;
   font-weight: 600;
 }
 
-.block.profile .profile-level .level-top .level-level {
-  width: 50%;
-  text-align: left;
-  display: inline-block;
-  vertical-align: top;
-  color: #1f1f1f;
-}
-
-.block.profile .profile-level .level-top .level-experience {
-  width: 50%;
-  text-align: right;
-  display: inline-block;
-  vertical-align: top;
-  color: #1f1f1f;
-}
-
-.block.profile .profile-level .level-bar {
-  width: 100%;
-}
-
-.block.profile .profile-level .level-bar .bar-outer {
-  width: 100%;
-  height: 5px;
+.block.profile .profile-levels .level-container .level-bar {
+  width: 90%;
+  height: 3px;
+  margin-right: 10%;
   background-color: #e5e5e5;
-  border-radius: 7.5px;
+  border-radius: 1.5px;
 }
 
-.block.profile .profile-level .level-bar .bar-outer .bar-inner {
-  width: 25%;
-  height: 100%;
+.block.profile .profile-levels .level-container .level-bar.complete {
   background-color: #20b621;
-  border-radius: 7.5px;
 }
 
 /*Task Card*/
@@ -187,12 +172,12 @@
   transition: background-color 0.1s ease-in-out;
 }
 
-.block.taskcard .card .card-body .card-action .action-button:hover {
-  background-color: #e5e5e5;
-  cursor: pointer;
+.block.taskcard .card .card-body .card-action .action-button.disabled:hover {
+  background-color: #fff;
+  cursor: unset;
 }
 
-.block.taskcard .card .card-body .card-action .action-button:active {
+.block.taskcard .card .card-body .card-action .action-button:hover {
   background-color: #e5e5e5;
   cursor: pointer;
 }
@@ -201,7 +186,6 @@
 
 .block.activityfeed {
   width: 100%;
-  margin-top: 20px;
   padding: 10px;
 }
 
@@ -217,7 +201,7 @@
 }
 
 .block.activityfeed .activityfeed-header .header-tab {
-  width: calc(100% / 3);
+  width: 50%;
   height: 100%;
   display: inline-block;
   font-size: 15px;
@@ -225,7 +209,7 @@
 }
 
 .block.activityfeed .activityfeed-header .header-current {
-  width: calc(100% / 3);
+  width: 50%;
   height: 3px;
   background-color: #000;
   -webkit-transition: margin-left 0.2s ease-in-out;
@@ -241,7 +225,7 @@
 }
 
 .block.activityfeed .activity .tabs {
-  width: 300%;
+  width: 200%;
   height: 400px;
   -webkit-transition: margin-left 0.2s ease-in-out;
   transition: margin-left 0.2s ease-in-out;
@@ -249,7 +233,7 @@
 }
 
 .block.activityfeed .activity .tabs .tab {
-  width: calc(100% / 3);
+  width: 50%;
   height: 400px;
   float: left;
   overflow-y: auto;
@@ -259,39 +243,170 @@
   width: 100%;
 }
 
-.block.activityfeed .activity .tabs .tab .timeline .timeline-activity {
+/*Overlays*/
+
+.overlay-cover {
+  position: absolute;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.overlay-cover .overlay-container {
+  margin-left: calc(100% + 40px);
   width: 100%;
+  height: calc(100vh - 40px);
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-transition: margin-left 0.2s ease-in-out;
+  transition: margin-left 0.2s ease-in-out;
+  box-shadow: 0 5px 10px -3px #121212;
+  padding: 10px;
+}
+
+/*TASK*/
+
+.overlay-cover.task .overlay-container .overlay-top {
+  height: 35px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 5px;
-  padding-bottom: 10px;
 }
 
-.block.activityfeed .activity .tabs .tab .timeline .timeline-activity .activity-header {
-  width: 100%;
-  height: 35px;
-}
-
-.block.activityfeed .activity .tabs .tab .timeline .timeline-activity .activity-header .header-timestamp {
-  height: 35px;
+.overlay-cover.task .overlay-container .overlay-top .overlay-title {
   float: left;
+  font-size: 20px;
   line-height: 35px;
-  color: #1f1f1f;
+  padding-left: 10px;
 }
 
-.block.activityfeed .activity .tabs .tab .timeline .timeline-activity .activity-header .header-options {
-  height: 35px;
+.overlay-cover.task .overlay-container .overlay-top .overlay-exit {
+  width: 30px;
+  height: 30px;
+  margin: 2.5px 10px 2.5px 0px;
   float: right;
-  padding-right: 10px;
-  line-height: 35px;
-  color: #1f1f1f;
+  color: #fff;
+  background-color: #1f1f1f;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
 }
 
-.block.activityfeed .activity .tabs .tab .timeline .timeline-activity .activity-body .activity-image {
+.overlay-cover.task .overlay-container .overlay-body {
   width: 100%;
-  height: 300px;
+  height: calc(100% - 55px);
+  overflow-y: auto;
 }
 
-.block.activityfeed .activity .tabs .tab .timeline .timeline-activity:last-child {
-  border-bottom: none;
+.overlay-cover.task .overlay-container .overlay-body .overlay-task {
+  width: 100%;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content {
+  width: 100%;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-title {
+  width: 100%;
+  line-height: 26px;
+  font-size: 18px;
+  padding: 10px 5px 20px 5px;
+  background-color: #1f1f1f;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #fff;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-thumbnail {
+  width: 100%;
+  height: 150px;
+  margin-top: -5px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px -3px #121212;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-description {
+  width: 100%;
+  padding: 10px;
+  padding-top: 20px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-image {
+  width: 100%;
+  padding: 10px;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-image .image-upload .upload-button {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #20b621;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-image .image-upload .upload-button-hidden {
+  display: none;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-image .image-preview {
+  width: 80%;
+  margin: 20px auto;
+  margin-bottom: 0px;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-image .image-preview .preview-inner {
+  width: 100%;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-image .image-preview .preview-inner .preview-image {
+  width: 100%;
+  box-shadow: 0 5px 10px -3px #121212;
+  border-radius: 5px;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-note {
+  width: 100%;
+  padding: 10px;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-content .task-note textarea {
+  width: 90%;
+  height: 70px;
+  margin: 0px 2.5%;
+  border: 1px solid #1f1f1f;
+  background-color: #fff;
+  border-radius: 5px;
+  min-width: 90%;
+  max-width: 90%;
+  min-height: 70px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-submit {
+  width: 100%;
+  height: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-submit .submit-button {
+  width: 180px;
+  height: 50px;
+  background-color: #20b621;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 20px;
+  border: none;
+}
+
+.overlay-cover.task .overlay-container .overlay-body .overlay-task .task-submit .submit-button[disabled] {
+  background-color: #1f1f1f;
 }
 

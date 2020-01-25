@@ -20,6 +20,8 @@
         <link href="{{ asset('css/blocks_app.css') }}" rel="stylesheet" type="text/css" >
     </head>
     <body>
+        <div class="page-overlays" id="overlay">
+        </div>
         <div class="page-wrapper">
             <header>
                 @include('layouts.app.header')

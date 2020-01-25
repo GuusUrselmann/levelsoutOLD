@@ -40,44 +40,31 @@
             }
         }
     }
-    .profile-level {
+    .profile-levels {
         width: 100%;
+        height: 23px;
         margin-top: 15px;
+        margin-bottom: 7px;
         padding: 0px 15px;
-        .level-top {
-            width: 100%;
-            height: 20px;
-            display: block;
-            line-height: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            .level-level {
-                width: 50%;
-                text-align: left;
-                display: inline-block;
-                vertical-align: top;
-                color: $grey-med;
-            }
-            .level-experience {
-                width: 50%;
-                text-align: right;
-                display: inline-block;
-                vertical-align: top;
-                color: $grey-med;
-            }
-        }
-        .level-bar {
-            width: 100%;
-            .bar-outer {
+        .level-container {
+            width: 25%;
+            float: left;
+            .level-top {
                 width: 100%;
-                height: 5px;
+                height: 20px;
+                padding-left: 5px;
+                line-height: 10px;
+                font-size: 12px;
+                font-weight: 600;
+            }
+            .level-bar {
+                width: 90%;
+                height: 3px;
+                margin-right: 10%;
                 background-color: $grey-light;
-                border-radius: 7.5px;
-                .bar-inner {
-                    width: 25%;
-                    height: 100%;
+                border-radius: 1.5px;
+                &.complete {
                     background-color: $green-light;
-                    border-radius: 7.5px;
                 }
             }
         }
@@ -156,11 +143,13 @@
                     text-align: center;
                     float: right;
                     transition: background-color .1s ease-in-out;
-                    &:hover {
-                        background-color: $grey-light;
-                        cursor: pointer;
+                    &.disabled {
+                        &:hover {
+                            background-color: #fff;
+                            cursor: unset;
+                        }
                     }
-                    &:active {
+                    &:hover {
                         background-color: $grey-light;
                         cursor: pointer;
                     }
@@ -173,7 +162,6 @@
 /*Activity Feed*/
 .block.activityfeed {
     width: 100%;
-    margin-top: 20px;
     padding: 10px;
     .activityfeed-header {
         width: 100%;
@@ -185,14 +173,14 @@
         border-top: 1px solid $grey-light;
         border-bottom: 1px solid $grey-light;
         .header-tab {
-            width: calc(100% / 3);
+            width: 50%;
             height: 100%;
             display: inline-block;
             font-size: 15px;
             text-align: center;
         }
         .header-current {
-            width: calc(100% / 3);
+            width: 50%;
             height: 3px;
             background-color: #000;
             transition: margin-left .2s ease-in-out;
@@ -205,47 +193,164 @@
         overflow-x: hidden;
         border-bottom: 1px solid $grey-light;
         .tabs {
-            width: 300%;
+            width: 200%;
             height: 400px;
             transition: margin-left .2s ease-in-out;
             overflow: hidden;
             .tab {
-                width: calc(100% / 3);
+                width: 50%;
                 height: 400px;
                 float:left;
                 overflow-y: auto;
                 .timeline {
                     width: 100%;
-                    .timeline-activity {
+                }
+            }
+        }
+    }
+}
+
+/*Overlays*/
+.overlay-cover {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 20px;
+    z-index: 9999;
+    .overlay-container {
+        margin-left: calc(100% + 40px);
+        width: 100%;
+        height: calc(100vh - 40px);
+        background-color: #fff;
+        border-radius: 10px;
+        transition: margin-left .2s ease-in-out;
+        box-shadow: 0 5px 10px -3px #121212;
+        padding: 10px;
+    }
+}
+/*TASK*/
+.overlay-cover.task {
+    .overlay-container {
+        .overlay-top {
+            height: 35px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid $grey-light;
+            .overlay-title {
+                float: left;
+                font-size: 20px;
+                line-height: 35px;
+                padding-left: 10px;
+            }
+            .overlay-exit {
+                width: 30px;
+                height: 30px;
+                margin: 2.5px 10px 2.5px 0px;
+                float: right;
+                color: #fff;
+                background-color: $grey-med;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 50%;
+            }
+        }
+        .overlay-body {
+            width: 100%;
+            height: calc(100% - 55px);
+            overflow-y: auto;
+            .overlay-task {
+                width: 100%;
+                .task-content {
+                    width: 100%;
+                    .task-title {
                         width: 100%;
-                        border-bottom: 1px solid $grey-light;
-                        margin-bottom: 5px;
-                        padding-bottom: 10px;
-                        .activity-header {
-                            width: 100%;
-                            height: 35px;
-                            .header-timestamp {
-                                height: 35px;
-                                float: left;
-                                line-height: 35px;
-                                color: $grey-med;
+                        line-height: 26px;
+                        font-size: 18px;
+                        padding: 10px 5px 20px 5px;
+                        background-color: $grey-med;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        color: #fff;
+                    }
+                    .task-thumbnail {
+                        width: 100%;
+                        height: 150px;
+                        margin-top: -5px;
+                        border-radius: 5px;
+                        box-shadow: 0 5px 10px -3px #121212;
+                    }
+                    .task-description {
+                        width: 100%;
+                        padding: 10px;
+                        padding-top: 20px;
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+                    .task-image {
+                        width: 100%;
+                        padding: 10px;
+                        .image-upload {
+                            .upload-button {
+                                width: 120px;
+                                height: 30px;
+                                line-height: 30px;
+                                font-size: 18px;
+                                background-color: $green-light;
+                                color: #fff;
+                                border: none;
+                                border-radius: 5px;
                             }
-                            .header-options {
-                                height: 35px;
-                                float: right;
-                                padding-right: 10px;
-                                line-height: 35px;
-                                color: $grey-med;
+                            .upload-button-hidden {
+                                display: none;
                             }
                         }
-                        .activity-body {
-                            .activity-image {
+                        .image-preview {
+                            width: 80%;
+                            margin: 20px auto;
+                            margin-bottom: 0px;
+                            .preview-inner {
                                 width: 100%;
-                                height: 300px;
+                                .preview-image {
+                                    width: 100%;
+                                    box-shadow: 0 5px 10px -3px #121212;
+                                    border-radius: 5px;
+                                }
                             }
                         }
-                        &:last-child {
-                            border-bottom: none;
+                    }
+                    .task-note {
+                        width: 100%;
+                        padding: 10px;
+                        textarea {
+                            width: 90%;
+                            height: 70px;
+                            margin: 0px 2.5%;
+                            border: 1px solid $grey-med;
+                            background-color: #fff;
+                            border-radius: 5px;
+                            min-width: 90%;
+                            max-width: 90%;
+                            min-height: 70px;
+                            padding: 5px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .task-submit {
+                    width: 100%;
+                    height: 50px;
+                    margin-top: 25px;
+                    margin-bottom: 25px;
+                    text-align: center;
+                    .submit-button {
+                        width: 180px;
+                        height: 50px;
+                        background-color: $green-light;
+                        color: #fff;
+                        border-radius: 10px;
+                        font-size: 20px;
+                        border: none;
+                        &[disabled] {
+                            background-color: $grey-med;
                         }
                     }
                 }

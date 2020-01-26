@@ -18,6 +18,7 @@
         <link href="{{ asset('fonts/fontawesome-free-5.3.1-web/css/all.min.css') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/layout_admin.css') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/blocks_admin.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/grid_admin.css') }}" rel="stylesheet" type="text/css" >
     </head>
     <body>
         <div class="page-wrapper">
@@ -27,7 +28,7 @@
             <main>
                 @include('layouts.admin.sidebar')
                 <div class="page-content" id="pageContent">
-                    <div class="page-sections">
+                    <div class="page-sections" id="root">
                         @yield('content')
                     </div>
                     <footer>

@@ -50,4 +50,12 @@ class APIController extends Controller
         ];
         return $data;
     }
+
+    public function adminDashboardSubmissions() {
+        $submissions = TaskSubmission::where('status', 'open')->with('user')->with('task')->get();
+        $data = [
+            'submissions' => $submissions
+        ];
+        return $data;
+    }
 }

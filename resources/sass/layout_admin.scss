@@ -34,7 +34,7 @@ ul {
 
     }
     .item-title {
-        color: $text-light;
+        color: #fff;
     }
     .submenu {
         .menu-item {
@@ -55,11 +55,11 @@ header {
         height: 25px;
         width: 100%;
         border-bottom: 1px solid #1c1c1c;
-        background-color: $dark-2;
+        background-color: $theme-main;
         position: fixed;
         top: 0;
         z-index: 99;
-        color: $text-light;
+        color: #fff;
         .nav-global {
             float: left;
         }
@@ -99,10 +99,10 @@ header {
         }
         .submenu {
             .menu-item {
-                background-color: $dark-3;
-                border-left: 3px solid $dark-3;
+                background-color: $grey-med;
+                border-left: 3px solid $grey-med;
                 &:hover {
-                    border-color: $theme-1;
+                    border-color: $theme-orange;
                 }
             }
         }
@@ -131,19 +131,19 @@ main {
 
 /*Sidebar*/
 .sidebar {
-     overflow:auto;
+    overflow: visible;
     width: 250px;
     height: 100vh;
     padding-top: 25px;
     position: fixed;
-    background-color: $dark-1;
-    border-right: 1px solid $border-dark;
-    color: $text-light;
+    background-color: $theme-dark-3;
+    border-right: 1px solid $grey-med;
+    color: #fff;
     transition: width ease-in-out .2s;
     &:hover {
         .sidebar-toggle {
-            right: -10px;
-            color: $text-light;
+            right: -15px;
+            color: #fff;
         }
     }
 }
@@ -152,12 +152,12 @@ main {
     right: 0px;
     width: 50px;
     height: 50px;
-    background-color: $dark-1;
+    background-color: $theme-dark-3;
     border-radius: 50%;
     line-height: 50px;
     font-size: 30px;
     text-align: center;
-    color: $dark-1;
+    color: $theme-dark-3;
     transition: right ease-in-out .1s, color ease-in-out .1s;
     &:hover {
         cursor: pointer;
@@ -175,7 +175,7 @@ main {
             width: 100px;
             height: 100px;
             margin: auto;
-            border: 1px solid $theme-1;
+            border: 1px solid $theme-orange;
             border-radius: 50%;
             background-repeat: no-repeat;
             background-size: cover;
@@ -188,13 +188,13 @@ main {
             box-sizing: border-box;
             &:last-child {
                 .item-title {
-                    border-bottom: 1px solid $dark-3;
+                    border-bottom: 1px solid $theme-dark-1;
                 }
             }
         }
         .menu-item.active {
             .item-title {
-                border-left-color: $theme-1;
+                border-left-color: $theme-orange;
             }
             .submenu {
                 display: block;
@@ -207,7 +207,7 @@ main {
             height: 45px;
             line-height: 45px;
             font-size: 22px;
-            border-top: 1px solid $dark-3;
+            border-top: 1px solid $theme-dark-1;
             border-left: 5px solid transparent;
             padding-left: 20px;
             white-space: nowrap;
@@ -223,13 +223,13 @@ main {
                 height: 35px;
                 line-height: 35px;
                 border-bottom: none;
-                background-color: $dark-3;
+                background-color: $grey-med;
             }
         }
     }
     #smsmall {
         display: none;
-        color: $white;
+        color: #fff;
         .sidebar-logo {
             width: 100%;
             height: 160px;
@@ -240,7 +240,7 @@ main {
             box-sizing: border-box;
             &:last-child  {
                 .item-title {
-                    border-bottom: 1px solid $dark-3;
+                    border-bottom: 1px solid $theme-dark-1;
                 }
             }
             .item-title {
@@ -249,13 +249,13 @@ main {
                 line-height: 45px;
                 font-size: 22px;
                 text-align: center;
-                border-top: 1px solid $dark-3;
+                border-top: 1px solid $theme-dark-1;
                 border-left: 5px solid transparent;
             }
         }
         .menu-item.active {
             .item-title {
-                border-left-color: $theme-1;
+                border-left-color: $theme-orange;
             }
         }
         i {
@@ -264,213 +264,22 @@ main {
     }
 }
 
-/*TABLE PLATFORM*/
-.table.platform {
-    .table-options {
-        background-color: #efefef;
-        margin-bottom: 5px;
-        display: block;
-        .table-search {
-            width: 250px;
-            height: 35px;
-            margin-left: 25px;
-            display: inline-block;
-            input {
-                width: 100%;
-                height: 32px;
-                line-height: 32px;
-                margin-bottom: 3px;
-                padding-left: 10px;
-                border: none;
-                border-bottom: 1px solid #c3c3c3;
-                background-color: transparent;
-                font-size: 16px;
-            }
-        }
-        .table-amount {
-            display: inline-block;
-        }
-        .table-add {
-            margin-left: 25px;
-            float: right;
-            padding: 2.5px 20px;
-            .add-button {
-                width: 100px;
-                height: 30px;
-                a {
-                    width: 100%;
-                    height: 100%;
-                    line-height: 30px;
-                    display: block;
-                    color: $text-light;
-                    .add-left {
-                        width: 30px;
-                        height: 100%;
-                        float: left;
-                        background-color: #50b038;
-                        text-align: center;
-                        border-top-left-radius: 3px;
-                        border-bottom-left-radius: 3px;
-                    }
-                    .add-right {
-                        width: 70px;
-                        height: 30px;
-                        float: left;
-                        padding-left: 5px;
-                        font-weight: 600;
-                        background-color: #fff;
-                        //border: 2px solid #ddd;
-                        color: #50b038;
-                        border-top-right-radius: 3px;
-                        border-bottom-right-radius: 3px;
-                        border: 1px solid #50b038;
-                        border-left: none;
-                    }
-                    &:hover {
-                        .add-right {
-                            background-color: #50b038;
-                            color: $text-light;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .table-field {
-        width: 100%;
-        overflow: auto;
-        table {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            .table-header {
-                height: 25px;
-                line-height: 25px;
-                color: $text-light;
-                background-color: $table-header;
-                th {
-                    text-align: center;
-                }
-            }
-            .table-row {
-                height: 30px;
-                line-height: 30px;
-            }
-            .table-row {
-                &:hover {
-                    background-color: $table-odd-hover;
-                }
-                &:nth-child(odd) {
-                    background-color: $table-even;
-                    &:hover {
-                        background-color: $table-even-hover;
-                    }
-                }
-                td {
-                    padding-left: 10px;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    &.actions {
-                        padding-left: 0px;
-                        a {
-                            display: block;
-                            width: 25px;
-                            height: 25px;
-                            text-align: center;
-                            line-height: 25px;
-                            float: left;
-                            margin: 5px;
-                            border-radius: 3px;
-                            i {
-                                color: $text-light;
-                            }
-                            &.edit {
-                                background-color: #50b038;
-                            }
-                            &.delete {
-                                background-color: #df2525;
-                            }
-                        }
-                    }
-                    .td-hoverbox {
-                        position: relative;
-                        right: -30px;
-                        top: -30px;
-                        &.hb-color {
-                            width: 30px;
-                            height: 30px;
-                            border: 1px solid #000;
-                            .hb-inner {
-                                width: 100%;
-                                height: 100%;
-                            }
-                        }
-
-                    }
-                }
-                .table-centered {
-                    text-align: center;
-                    padding: 0px;
-                }
-            }
-        }
-        .table-empty-msg {
-            text-align: center;
-            line-height: 50px;
-            color: $text-lightgrey;
-        }
-    }
-    .table-pagination {
-        width: 100%;
-        height: 35px;
-        background-color: #ddd;
-        .tablep-counter {
-            height: 35px;
-            line-height: 35px;
-            padding-left: 15px;
-            color: #6f6f6f;
-            float: left;
-            display: block;
-        }
-        .tablep-buttons {
-            height: 35px;
-            margin-right: 15px;
-            float: right;
-            display: block;
-            .tablep-button {
-                width: 30px;
-                height: 30px;
-                margin: 2.5px;
-                line-height: 30px;
-                background-color: #b8b8b8;
-                text-align: center;
-                display: inline-block;
-                color: $text-light;
-                font-weight: 600;
-            }
-            .tablep-button.current {
-                background-color: $table-header;
-            }
-        }
-    }
-}
 
 /*CONTENT BLOCKS*/
 .page-sections {
     .content-block {
         width: 100%;
         padding: 5px;
-        background-color: $white;
+        background-color: #fff;
         border-radius: 3px;
-        border: 1px solid $border-light;
+        border: 1px solid #fff;
         box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
     }
     .block-header {
         width: 100%;
         height: 45px;
         line-height: 45px;
-        color: $text-dark;
+        color: $grey-med;
         .block-title {
             padding-left: 10px;
             font-size: 22px;
@@ -480,449 +289,4 @@ main {
         width: 100%;
         min-height: 100px;
     }
-}
-
-/*FORMS*/
-.form {
-    width: 100%;
-    .form-row {
-        width: 100%;
-        margin-bottom: 15px;
-        .form-input {
-            padding-left: 15px;
-            .input-label {
-
-                width: 100%;
-                line-height: 20px;
-                margin-bottom: 5px;
-                height: 20px;
-                label {
-                    line-height: 20px;
-                    font-size: 18px;
-                    color: #505050;
-                }
-            }
-            .input-errors {
-                width: 80%;
-                line-height: 18px;
-                font-size: 14px;
-                color: #fff;
-                background-color: #f55;
-                margin: 5px 0px;
-                padding: 5px;
-                border-radius: 3px;
-            }
-            &.text {
-                width: 50%;
-                .input {
-                    width: 80%;
-                    height: 35px;
-                    input {
-                        width: 100%;
-                        height: 100%;
-                        border: none;
-                        padding: 5px 10px;
-                        font-size: 18px;
-                        border-bottom: 2px solid #444;
-                        &:focus {
-                            border-bottom: 2px solid $theme-1;
-                        }
-                    }
-                }
-            }
-            &.textarea {
-                width: 100%;
-                .input {
-                    textarea {
-                        width: 60%;
-                        height: 200px;
-                        padding: 5px 10px;
-                        font-size: 18px;
-                        border: 2px solid #444;
-                        &:focus {
-                            border: 2px solid $theme-1;
-                        }
-                    }
-                }
-            }
-            &.select {
-                width: 50%;
-                .input {
-                    select {
-                        width: 50%;
-                        height: 35px;
-                        padding: 5px 10px;
-                        font-size: 18px;
-                        border: 2px solid #444;
-                        &:focus {
-                            border: 2px solid $theme-1;
-                        }
-                    }
-                }
-            }
-            &.num {
-                width: 50%;
-                .input {
-                    input {
-                        width: 40%;
-                        height: 35px;
-                        padding: 5px 10px;
-                        font-size: 18px;
-                        border: 2px solid #444;
-                        &:focus {
-                            border: 2px solid $theme-1;
-                        }
-                    }
-                }
-            }
-            &.image {
-                width: 100%;
-                .input {
-                    .button {
-                        width: 150px;
-                        height: 35px;
-                        background-color: #fff;
-                        border: 2px solid #444;
-                        font-size: 18px;
-                        line-height: 35px;
-                        text-align: center;
-
-                    }
-                    input {
-                        width: 150px;
-                        height: 35px;
-                        position: relative;
-                        top: -35px;
-                        left: 0;
-                        opacity: 0;
-
-                    }
-                }
-                .preview {
-                    display: none;
-                    width: 300px;
-                    height: 150px;
-                    &.shown {
-                        display: block;
-                    }
-                }
-            }
-            &.color {
-                width: 50%;
-                float: left;
-                .input {
-                    width: 100px;
-                    height: 35px;
-                    input {
-                        width: calc(100%);
-                        height: 100%;
-                        border: none;
-                        background-color: #fff;
-                        padding: 5px 10px;
-                        font-size: 18px;
-                        border-bottom: 2px solid #444;
-                        &:focus {
-                            border-bottom: 2px solid $theme-1;
-                        }
-                    }
-                }
-            }
-            &.password {
-                width: 50%;
-                .input {
-                    width: 80%;
-                    height: 35px;
-                    input {
-                        width: calc(100% - 35px);
-                        height: 100%;
-                        border: none;
-                        padding: 5px 10px;
-                        font-size: 18px;
-                        border-bottom: 2px solid #444;
-                        &:focus {
-                            border-bottom: 2px solid $theme-1;
-                        }
-                    }
-                    .password-toggle {
-                        width: 35px;
-                        height: 100%;
-                        display: block;
-                        float: right;
-                        border: 2px solid #444;
-                        line-height: 35px;
-                        text-align: center;
-                        color: #595959;
-                        background-color: #c3c3c3;
-                        box-sizing: border-box;
-                        &.toggled {
-                            color: #fff;
-                            background-color: #50b038;
-                        }
-                    }
-                }
-            }
-            &.relation {
-                width: 100%;
-                .relation-add {
-                    width: 100px;
-                    height: 30px;
-                    .add-button {
-                        width: 100%;
-                        height: 100%;
-                        line-height: 30px;
-                        color: $text-light;
-                        .add-left {
-                            width: 30px;
-                            height: 100%;
-                            float: left;
-                            background-color: #444;
-                            text-align: center;
-                        }
-                        .add-right {
-                            width: 70px;
-                            height: 30px;
-                            float: left;
-                            padding-left: 5px;
-                            font-weight: 600;
-                            background-color: #fff;
-                            //border: 2px solid #ddd;
-                            color: #444;
-                            border: 1px solid #444;
-                            border-left: none;
-                        }
-                        &:hover {
-                            .add-right {
-                                background-color: #444;
-                                color: $text-light;
-                                cursor: pointer;
-                            }
-                        }
-                    }
-                }
-                .relations {
-                    .relation {
-                        .relation-row {
-                            margin: 5px 0px;
-                            width: 500px;
-                            height: 80px;
-                            .relation-left {
-                                float: left;
-                                width: 50%;
-                                padding: 5px;
-                                background-color: #a2a2a2;
-                                border: 2px solid #444;
-                                .relation-label {
-                                    height: 30px;
-                                    line-height: 30px;
-                                    color: #fff;
-                                    .relation-remove {
-                                        width: 30px;
-                                        height: 30px;
-                                        display: none;
-                                        float: right;
-                                        color: #df2525;
-                                        &:hover {
-                                            cursor: pointer;
-                                        }
-                                    }
-                                }
-                                .relation-input {
-                                    width: 100%;
-                                    height: 30px;
-                                    select {
-                                        width: 100%;
-                                        height: 100%;
-                                        font-size: 18px;
-                                        border: 1px solid #444;
-                                    }
-                                }
-                                &:hover {
-                                    .relation-label {
-                                        .relation-remove {
-                                            display: block;
-                                        }
-                                    }
-                                }
-                            }
-                            .relation-right {
-                                float: left;
-                                width: 48%;
-                                margin-left: 2%;
-                                padding: 5px;
-                                background-color: #a2a2a2;
-                                border: 2px solid #444;
-                                .answer-label {
-                                    height: 30px;
-                                    line-height: 30px;
-                                    color: #fff;
-                                }
-                                .answer-input {
-                                    width: 100%;
-                                    height: 30px;
-                                    select {
-                                        width: 100%;
-                                        height: 100%;
-                                        font-size: 18px;
-                                        border: 1px solid #444;
-                                    }
-                                    input {
-                                        width: 100%;
-                                        height: 100%;
-                                        padding-left: 3px;
-                                        font-size: 16px;
-                                        border: 1px solid #444;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            &.answers {
-                .input {
-                    .type-answer {
-                        width: 100%;
-                        min-height: 50px;
-                        display: none;
-                        &.active {
-                            display: block;
-                        }
-                        &.text {
-
-                        }
-                        &.select {
-                            .answer-add {
-                                height: 30px;
-                                width: 100%;
-                                .add-button {
-                                    float: left;
-                                    height: 100%;
-                                    line-height: 30px;
-                                    color: $text-light;
-                                    .add-left {
-                                        width: 30px;
-                                        height: 100%;
-                                        float: left;
-                                        background-color: #444;
-                                        text-align: center;
-                                    }
-                                    .add-right {
-                                        width: 70px;
-                                        height: 30px;
-                                        float: left;
-                                        padding-left: 5px;
-                                        font-weight: 600;
-                                        background-color: #fff;
-                                        //border: 2px solid #ddd;
-                                        color: #444;
-                                        border: 1px solid #444;
-                                        border-left: none;
-                                    }
-                                    &:hover {
-                                        .add-right {
-                                            background-color: #444;
-                                            color: $text-light;
-                                            cursor: pointer;
-                                        }
-                                    }
-                                }
-                            }
-                            .answers-list {
-                                width: 100%;
-                                padding: 10px;
-                                .answer-field {
-                                    width: 250px;
-                                    height: 35px;
-                                    margin: 5px 0px;
-                                    border: 2px solid #444;
-                                    padding: 2.5px;
-                                    background-color: #a2a2a2;
-                                    &:hover {
-                                        span {
-                                            display: block;
-                                        }
-                                    }
-                                    input {
-                                        width: 210px;
-                                        height: 35px;
-                                        float: left;
-                                        padding-left: 5px;
-                                        font-size: 20px;
-                                        border: 1px solid #444;
-                                    }
-                                    span {
-                                        width: 35px;
-                                        height: 35px;
-                                        margin-left: 5px;
-                                        font-size: 26px;
-                                        display: none;
-                                        line-height: 35px;
-                                        text-align: center;
-                                        float: left;
-                                        i {
-                                            color: #df2525;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .form-submit {
-            padding-left: 15px;
-            .submit {
-                width: auto;
-                min-width: 150px;
-                height: 45px;
-                border: none;
-                background-color: #50b038;
-                color: $text-light;
-                font-size: 18px;
-                padding: 0px 10px;
-            }
-        }
-    }
-}
-
-/*CALLOUT*/
-
-.callout{
-
-}
-
-.callout {
-    font-family: Helvetica;
-    height: 250px;
-    width: 280px;
-    font-size: 13px;
-}
-
-.callout {
-    background-color: white;
-    border-radius: 3px;
-    position:absolute;
-    top:52%;
-    box-shadow: 0px 0px 20px #999;
-    margin: 25px;
-    border: 1px solid white;
-    text-shadow: 0 0 1px #000;
-    display:none;
-
-    .callout-content{
-        overflow:auto;
-    }
-
-}
-
-.callout::before {
-    content: "";
-    width: 0px;
-    height: 2px;
-    border: 0.8em solid transparent;
-    position: absolute;
-    left: 70%;
-    top: -20px;
-    border-bottom: 10px solid white;
 }

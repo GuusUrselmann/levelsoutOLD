@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -45818,10 +45818,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/GuestHomeControl.jsx":
-/*!*******************************************!*\
-  !*** ./resources/js/GuestHomeControl.jsx ***!
-  \*******************************************/
+/***/ "./resources/js/AdminDashboardControl.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/AdminDashboardControl.jsx ***!
+  \************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -45833,27 +45833,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_AppHome_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AppHome.jsx */ "./resources/js/components/AppHome.jsx");
+/* harmony import */ var _components_Admin_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Admin.jsx */ "./resources/js/components/Admin.jsx");
 
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), document.getElementById('root'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Admin_jsx__WEBPACK_IMPORTED_MODULE_4__["Submissions"], null), document.getElementById('root'));
 
 /***/ }),
 
-/***/ "./resources/js/components/AppHome.jsx":
-/*!*********************************************!*\
-  !*** ./resources/js/components/AppHome.jsx ***!
-  \*********************************************/
-/*! exports provided: Profile, TaskCard, TaskActivity */
+/***/ "./resources/js/components/Admin.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Admin.jsx ***!
+  \*******************************************/
+/*! exports provided: Submissions */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Profile", function() { return Profile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskCard", function() { return TaskCard; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskActivity", function() { return TaskActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Submissions", function() { return Submissions; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -45954,520 +45952,202 @@ function _setPrototypeOf(o, p) {
 
 
 
-var Profile =
+var Submissions =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Profile, _React$Component);
+  _inherits(Submissions, _React$Component);
 
-  function Profile(props) {
+  function Submissions(props) {
     var _this;
 
-    _classCallCheck(this, Profile);
+    _classCallCheck(this, Submissions);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Profile).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Submissions).call(this, props));
     _this.state = {
-      tabCurrent: 0,
-      user: '',
-      levels: []
+      submissions: []
     };
     return _this;
   }
 
-  _createClass(Profile, [{
+  _createClass(Submissions, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post(url() + '/api/homeprofile', {
-        headers: {
-          'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_2___default()('meta[name="csrf-token"]').attr('content')
-        }
-      }).then(function (response) {
-        _this2.setState({
-          user: response.data.user,
-          levels: response.data.levels
-        });
-      })["catch"](function (error) {
-        console.log(error);
-      });
+      this.getSubmissions();
+      setInterval(function () {
+        _this2.getSubmissions();
+      }, 10000);
       this.setState({
         isLoading: false
       });
     }
   }, {
-    key: "render",
-    value: function render() {
-      var user = this.state.user;
-      var levels = this.state.levels;
-      var levelsBar = levels.map(function (level, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "level-container",
-          key: level.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "level-top"
-        }, i == 0 ? 'LEVEL ' : '', level.level), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: 'level-bar ' + (user.level > level.level ? 'complete' : '')
-        }));
-      });
-      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "block profile"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "info-image"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "image-inner background-cover",
-        style: {
-          backgroundImage: "url(".concat(url(), "/images/Oshi.jpg)")
-        }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "info-name"
-      }, user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "info-description"
-      }, user.description))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-levels"
-      }, levelsBar));
-      return element;
-    }
-  }]);
-
-  return Profile;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-var TaskCard =
-/*#__PURE__*/
-function (_React$Component2) {
-  _inherits(TaskCard, _React$Component2);
-
-  function TaskCard() {
-    _classCallCheck(this, TaskCard);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(TaskCard).apply(this, arguments));
-  }
-
-  _createClass(TaskCard, [{
-    key: "render",
-    value: function render() {
+    key: "getSubmissions",
+    value: function getSubmissions() {
       var _this3 = this;
 
-      var action = '';
-
-      if (this.props.task.submission) {
-        if (this.props.type == 'current') {
-          action = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "action-button theme-button-full",
-            onClick: function onClick(e) {
-              return _this3.openTaskViewOverlay(e, _this3.props.task);
-            }
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            className: "fas fa-arrow-right"
-          }));
-        }
-      } else if (this.props.type == 'current') {
-        action = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "action-button theme-button-full",
-          onClick: function onClick(e) {
-            return _this3.openTaskOverlay(e, _this3.props.task);
-          }
-        }, "UPLOAD");
-      } else {
-        action = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "action-button theme-button-full disabled"
-        }, "UNLOCK AT LEVEL ", this.props.task.level_min);
-      }
-
-      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "block taskcard"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-top"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-name"
-      }, this.props.type == 'current' ? 'Current task' : 'Task ' + this.props.task.level_min), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-time"
-      }, "1min ago"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-page"
-      }, "1/1")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-question"
-      }, this.props.task.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-description"
-      }, this.props.task.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-action"
-      }, action))));
-      return element;
-    }
-  }, {
-    key: "openTaskOverlay",
-    value: function openTaskOverlay(e, task) {
-      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TaskOverlay, {
-        task: task
-      });
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(element, document.getElementById('overlay'));
-      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'hidden');
-      setTimeout(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskoverlay .overlay-container").css({
-          'margin-left': '0px'
-        });
-      }, 50);
-    }
-  }, {
-    key: "openTaskViewOverlay",
-    value: function openTaskViewOverlay(e, task) {
-      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TaskViewOverlay, {
-        task: task
-      });
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(element, document.getElementById('overlay'));
-      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'hidden');
-      setTimeout(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskviewoverlay .overlay-container").css({
-          'margin-left': '0px'
-        });
-      }, 50);
-    }
-  }]);
-
-  return TaskCard;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-var TaskActivity =
-/*#__PURE__*/
-function (_React$Component3) {
-  _inherits(TaskActivity, _React$Component3);
-
-  function TaskActivity(props) {
-    var _this4;
-
-    _classCallCheck(this, TaskActivity);
-
-    _this4 = _possibleConstructorReturn(this, _getPrototypeOf(TaskActivity).call(this, props));
-    _this4.state = {
-      tabCurrent: 0,
-      tasks: [],
-      completed: []
-    };
-    return _this4;
-  }
-
-  _createClass(TaskActivity, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this5 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post(url() + '/api/hometasks', {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post(url() + '/api/admindashboardsubmissions', {
         headers: {
           'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_2___default()('meta[name="csrf-token"]').attr('content')
         }
       }).then(function (response) {
-        _this5.setState({
-          tasks: response.data.tasks,
-          complete: response.data.completed
+        _this3.setState({
+          submissions: response.data.submissions
         });
       })["catch"](function (error) {
         console.log(error);
       });
-      this.setState({
-        isLoading: false
-      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this6 = this;
-
-      var tasks = this.state.tasks;
-      var completed = this.state.completed;
-      var taskList = tasks.map(function (task, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TaskCard, {
-          key: task.id,
-          task: task,
-          type: i == 0 ? 'current' : 'normal'
-        });
-      });
-      var completeList = completed.map(function (task) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TaskCard, {
-          key: task.id,
-          task: task
+      var submissions = this.state.submissions;
+      var submissionCards = submissions.map(function (submission) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SubmissionCard, {
+          key: submission.id,
+          submission: submission
         });
       });
       var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "block activityfeed"
+        className: "content-block",
+        id: "submissions"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "activityfeed-header"
+        className: "block-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header-tab",
-        onClick: function onClick(e) {
-          return _this6.switchTab(e, 0);
-        }
-      }, "TASKS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header-tab",
-        onClick: function onClick(e) {
-          return _this6.switchTab(e, 1);
-        }
-      }, "COMPLETED"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header-current",
-        id: "tabbar"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "activity"
+        className: "block-title"
+      }, "task submissions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "block-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tabs",
-        id: "tabslider"
+        className: "submissions"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tab"
-      }, taskList), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tab"
-      }, completeList))));
-      return element;
-    }
-  }, {
-    key: "switchTab",
-    value: function switchTab(e, tabTarget) {
-      var slider = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#tabslider");
-      var tabBar = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#tabbar");
-      var tabHeader = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#tabheader");
-      this.state.tabCurrent = tabTarget;
-      slider.css({
-        "margin-left": -(this.state.tabCurrent * 100) + "%"
-      });
-      tabBar.css({
-        "margin-left": this.state.tabCurrent * (100 / 2) + "%"
-      });
-      console.log(this.state.tabCurrent);
-    }
-  }]);
-
-  return TaskActivity;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-var TaskOverlay =
-/*#__PURE__*/
-function (_React$Component4) {
-  _inherits(TaskOverlay, _React$Component4);
-
-  function TaskOverlay() {
-    _classCallCheck(this, TaskOverlay);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(TaskOverlay).apply(this, arguments));
-  }
-
-  _createClass(TaskOverlay, [{
-    key: "render",
-    value: function render() {
-      var _this7 = this;
-
-      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-cover task",
-        id: "taskoverlay"
+        className: "submissions-container",
+        id: "submissions"
+      }, submissionCards), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-view"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-container"
+        className: "view-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-top"
+        className: "container-header"
+      }, "Task submission view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-fields",
+        id: "submissionview"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-title"
-      }, "Task ", this.props.task.level_min), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-exit",
-        onClick: function onClick() {
-          return _this7.closeTaskOverlay();
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-right"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-task"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        method: "POST",
-        action: url() + '/app/tasksubmit',
-        encType: "multipart/form-data"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "hidden",
-        name: "_token",
-        value: jquery__WEBPACK_IMPORTED_MODULE_2___default()('meta[name="csrf-token"]').attr('content')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "hidden",
-        name: "task_id",
-        value: this.props.task.id
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-title"
-      }, this.props.task.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-thumbnail background-cover",
-        style: {
-          backgroundImage: "url(".concat(this.props.task.image_path)
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-description"
-      }, this.props.task.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-image"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "image-upload"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "upload-button",
-        value: "loadXml",
-        type: "button",
-        onClick: function onClick(e) {
-          document.getElementById('imagebutton').click();
-        }
-      }, "Select image"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "file",
-        name: "task_image",
-        className: "upload-button-hidden",
-        id: "imagebutton",
-        onChange: function onChange(e) {
-          return _this7.imagePreview(e);
-        }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "image-preview"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "preview-inner",
-        id: "imagepreview"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-note"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        name: "task_note",
-        placeholder: "Notes..."
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-submit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit-button",
-        type: "submit",
-        name: "task_submit",
-        disabled: true,
-        id: "tasksubmit"
-      }, "LET'S GO!")))))));
-      return element;
-    }
-  }, {
-    key: "closeTaskOverlay",
-    value: function closeTaskOverlay() {
-      jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskoverlay .overlay-container").css({
-        'margin-left': 'calc(100% + 40px)'
-      });
-      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'unset');
-      setTimeout(function () {
-        react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(document.getElementById('overlay'));
-      }, 300);
-    }
-  }, {
-    key: "imagePreview",
-    value: function imagePreview(e) {
-      jquery__WEBPACK_IMPORTED_MODULE_2___default()("#imagepreview .preview-image").remove();
-
-      if (e.target.files && e.target.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-          jquery__WEBPACK_IMPORTED_MODULE_2___default()("#imagepreview").append("<img class=\"preview-image\" src=\"" + e.target.result + "\" />");
-        };
-
-        reader.readAsDataURL(e.target.files[0]);
-        jquery__WEBPACK_IMPORTED_MODULE_2___default()("#tasksubmit").removeAttr('disabled');
-      } else {
-        jquery__WEBPACK_IMPORTED_MODULE_2___default()("#tasksubmit").addAttr('disabled');
-      }
-    }
-  }]);
-
-  return TaskOverlay;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-var TaskViewOverlay =
-/*#__PURE__*/
-function (_React$Component5) {
-  _inherits(TaskViewOverlay, _React$Component5);
-
-  function TaskViewOverlay() {
-    _classCallCheck(this, TaskViewOverlay);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(TaskViewOverlay).apply(this, arguments));
-  }
-
-  _createClass(TaskViewOverlay, [{
-    key: "render",
-    value: function render() {
-      var _this8 = this;
-
-      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-cover task",
-        id: "taskviewoverlay"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-top"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-title"
-      }, "Task ", this.props.task.level_min, " status: ", this.props.task.submission.status), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-exit",
-        onClick: function onClick() {
-          return _this8.closeTaskOverlay();
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-right"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "overlay-task"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-title"
-      }, this.props.task.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-thumbnail background-cover",
-        style: {
-          backgroundImage: "url(".concat(this.props.task.image_path)
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-description"
-      }, this.props.task.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-image"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "image-preview"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "preview-inner"
+        className: "submission-image"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "preview-image",
-        src: this.props.task.submission.image_path
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "task-note"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        name: "task_note",
-        disabled: true
-      }, this.props.task.submission.note != '' ? this.props.task.submission.note : 'No notes given')))))));
+        className: "image"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-task"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "task-header"
+      }, "Task"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "task-title"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "task-description"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-user"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-header"
+      }, "User"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-name"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-description"
+      }))))))));
       return element;
-    }
-  }, {
-    key: "closeTaskOverlay",
-    value: function closeTaskOverlay() {
-      jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskviewoverlay .overlay-container").css({
-        'margin-left': 'calc(100% + 40px)'
-      });
-      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'unset');
-      setTimeout(function () {
-        react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(document.getElementById('overlay'));
-      }, 300);
     }
   }]);
 
-  return TaskViewOverlay;
+  return Submissions;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var SubmissionCard =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(SubmissionCard, _React$Component2);
+
+  function SubmissionCard() {
+    _classCallCheck(this, SubmissionCard);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SubmissionCard).apply(this, arguments));
+  }
+
+  _createClass(SubmissionCard, [{
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-background background-cover",
+        style: {
+          backgroundImage: "url(".concat(this.props.submission.image_path)
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-user"
+      }, "From: ", this.props.submission.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-expand",
+        onClick: function onClick(e) {
+          return _this4.fullImage(_this4.props.submission);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-expand"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-body",
+        onClick: function onClick(e) {
+          return _this4.viewSubmission(_this4.props.submission);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-deny"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-times"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-accept"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-check"
+      })))));
+      return element;
+    }
+  }, {
+    key: "viewSubmission",
+    value: function viewSubmission(submission) {
+      var view = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#submissionview");
+      view.find(".submission-image img").attr('src', submission.image_path);
+      view.find(".task-title").text(submission.task.title);
+      view.find(".task-description").text(submission.task.description);
+      view.find(".user-name").text(submission.user.name);
+      view.find(".user-description").text(submission.user.description);
+    }
+  }, {
+    key: "fullImage",
+    value: function fullImage(submission) {//add full image overlay to screen
+    }
+  }, {
+    key: "submitStatus",
+    value: function submitStatus(status) {//make api post to approve or deny (with message why if denied)
+      //remove from list of submissions
+    }
+  }]);
+
+  return SubmissionCard;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
 
 /***/ }),
 
-/***/ 5:
-/*!*************************************************!*\
-  !*** multi ./resources/js/GuestHomeControl.jsx ***!
-  \*************************************************/
+/***/ 6:
+/*!******************************************************!*\
+  !*** multi ./resources/js/AdminDashboardControl.jsx ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\js\GuestHomeControl.jsx */"./resources/js/GuestHomeControl.jsx");
+module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\js\AdminDashboardControl.jsx */"./resources/js/AdminDashboardControl.jsx");
 
 
 /***/ })

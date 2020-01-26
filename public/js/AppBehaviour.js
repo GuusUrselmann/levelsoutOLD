@@ -10735,6 +10735,17 @@ function sidebarToggle() {
 
 /***/ }),
 
+/***/ "./resources/sass/blocks_admin.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/blocks_admin.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/blocks_app.scss":
 /*!****************************************!*\
   !*** ./resources/sass/blocks_app.scss ***!
@@ -10749,6 +10760,28 @@ function sidebarToggle() {
 /***/ "./resources/sass/blocks_guest.scss":
 /*!******************************************!*\
   !*** ./resources/sass/blocks_guest.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/grid_admin.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/grid_admin.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/layout_admin.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/layout_admin.scss ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -10791,9 +10824,9 @@ function sidebarToggle() {
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/AppBehaviour.js ./resources/sass/app.scss ./resources/sass/layout_app.scss ./resources/sass/layout_guest.scss ./resources/sass/responsive_guest.scss ./resources/sass/blocks_app.scss ./resources/sass/blocks_guest.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/AppBehaviour.js ./resources/sass/app.scss ./resources/sass/layout_app.scss ./resources/sass/layout_guest.scss ./resources/sass/layout_admin.scss ./resources/sass/responsive_guest.scss ./resources/sass/blocks_app.scss ./resources/sass/blocks_guest.scss ./resources/sass/blocks_admin.scss ./resources/sass/grid_admin.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10801,9 +10834,12 @@ __webpack_require__(/*! C:\wamp64\www\levelsout\resources\js\AppBehaviour.js */"
 __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\layout_app.scss */"./resources/sass/layout_app.scss");
 __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\layout_guest.scss */"./resources/sass/layout_guest.scss");
+__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\layout_admin.scss */"./resources/sass/layout_admin.scss");
 __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\responsive_guest.scss */"./resources/sass/responsive_guest.scss");
 __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\blocks_app.scss */"./resources/sass/blocks_app.scss");
-module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\blocks_guest.scss */"./resources/sass/blocks_guest.scss");
+__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\blocks_guest.scss */"./resources/sass/blocks_guest.scss");
+__webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\blocks_admin.scss */"./resources/sass/blocks_admin.scss");
+module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\sass\grid_admin.scss */"./resources/sass/grid_admin.scss");
 
 
 /***/ })

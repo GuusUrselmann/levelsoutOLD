@@ -58,4 +58,20 @@ class APIController extends Controller
         ];
         return $data;
     }
+
+    public function adminDashboardSubmissionsSubmit(Request $request) {
+        $submission = TaskSubmission::find($request->submission_id);
+        if($request->status == 'accepted') {
+            $submission->update([
+                'status' => $request->status
+            ]);
+        }
+        else {
+            $submission->update([
+                'status' => 'denied',
+                'status_report' => 'your submission was denied because: ...'
+            ]);
+        }
+
+    }
 }

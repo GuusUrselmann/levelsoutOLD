@@ -46044,6 +46044,10 @@ function (_React$Component) {
         className: "task-title"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "task-description"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-note-title"
+      }, "Notes:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "submission-note"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "submission-user"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -46077,7 +46081,7 @@ function (_React$Component2) {
       var _this4 = this;
 
       var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "submission-card"
+        className: 'submission-card card-' + this.props.submission.id
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "submission-background background-cover",
         style: {
@@ -46102,11 +46106,17 @@ function (_React$Component2) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "submission-footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "submission-deny"
+        className: "submission-deny",
+        onClick: function onClick(e) {
+          return _this4.submitStatus(_this4.props.submission, 'denied');
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-times"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "submission-accept"
+        className: "submission-accept",
+        onClick: function onClick(e) {
+          return _this4.submitStatus(_this4.props.submission, 'accepted');
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-check"
       })))));
@@ -46119,6 +46129,7 @@ function (_React$Component2) {
       view.find(".submission-image img").attr('src', submission.image_path);
       view.find(".task-title").text(submission.task.title);
       view.find(".task-description").text(submission.task.description);
+      view.find(".submission-note").text(submission.note != '' ? submission.note : 'No notes');
       view.find(".user-name").text(submission.user.name);
       view.find(".user-description").text(submission.user.description);
     }
@@ -46128,8 +46139,20 @@ function (_React$Component2) {
     }
   }, {
     key: "submitStatus",
-    value: function submitStatus(status) {//make api post to approve or deny (with message why if denied)
+    value: function submitStatus(submission, status) {
+      //make api post to approve or deny (with message why if denied)
       //remove from list of submissions
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post(url() + '/api/admindashboardsubmissionssubmit', {
+        headers: {
+          'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_2___default()('meta[name="csrf-token"]').attr('content')
+        },
+        submission_id: submission.id,
+        status: status
+      }).then(function (response) {
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()(".submission-card.card-" + submission.id).remove();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }]);
 

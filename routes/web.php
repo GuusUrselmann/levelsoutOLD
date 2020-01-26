@@ -41,4 +41,5 @@ Route::group(['prefix'=>'/api'], function () {
     Route::post('/homeprofile', 'APIController@homeProfile');
     Route::post('/hometasks', 'APIController@homeTasks');
     Route::post('/admindashboardsubmissions', 'APIController@adminDashboardSubmissions');
+    Route::post('/admindashboardsubmissionssubmit', 'APIController@adminDashboardSubmissionsSubmit');
 });

@@ -59,6 +59,12 @@ class Submissions extends React.Component {
                                         </div>
                                         <div className="task-description">
                                         </div>
+                                        <div className="submission-note-title">
+                                            Notes:
+                                        </div>
+                                        <div className="submission-note">
+
+                                        </div>
                                     </div>
                                     <div className="submission-user">
                                         <div className="user-header">
@@ -83,7 +89,7 @@ class Submissions extends React.Component {
 class SubmissionCard extends React.Component {
     render() {
         const element = (
-            <div className="submission-card">
+            <div className={'submission-card card-'+ this.props.submission.id}>
                 <div className="submission-background background-cover" style={{backgroundImage: `url(${this.props.submission.image_path}`}}>
                     <div className="submission-header">
                         <div className="header-user">From: {this.props.submission.user.name}</div>
@@ -92,8 +98,8 @@ class SubmissionCard extends React.Component {
                     <div className="submission-body" onClick={(e) => this.viewSubmission(this.props.submission)}>
                     </div>
                     <div className="submission-footer">
-                        <div className="submission-deny"><i className="fas fa-times"></i></div>
-                        <div className="submission-accept"><i className="fas fa-check"></i></div>
+                        <div className="submission-deny" onClick={(e)=>this.submitStatus(this.props.submission, 'denied')}><i className="fas fa-times"></i></div>
+                        <div className="submission-accept"onClick={(e)=>this.submitStatus(this.props.submission, 'accepted')}><i className="fas fa-check"></i></div>
                     </div>
                 </div>
             </div>
@@ -105,6 +111,7 @@ class SubmissionCard extends React.Component {
         view.find(".submission-image img").attr('src', submission.image_path);
         view.find(".task-title").text(submission.task.title);
         view.find(".task-description").text(submission.task.description);
+        view.find(".submission-note").text((submission.note!= ''? submission.note: 'No notes'));
         view.find(".user-name").text(submission.user.name);
         view.find(".user-description").text(submission.user.description);
 
@@ -112,9 +119,20 @@ class SubmissionCard extends React.Component {
     fullImage(submission) {
         //add full image overlay to screen
     }
-    submitStatus(status) {
+    submitStatus(submission, status) {
         //make api post to approve or deny (with message why if denied)
         //remove from list of submissions
+        Axios.post(url()+'/api/admindashboardsubmissionssubmit', {
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            submission_id: submission.id,
+            status: status
+        })
+        .then(response => {
+            $(".submission-card.card-"+submission.id).remove();
+        })
+        .catch(error => {
+            console.log(error);
+       });
     }
 }
 

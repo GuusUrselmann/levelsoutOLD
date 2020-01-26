@@ -118,6 +118,7 @@ class TaskCard extends React.Component {
             <TaskOverlay task={task} />
         );
         ReactDOM.render(element, document.getElementById('overlay'));
+        $("body").css('overflow', 'hidden');
         setTimeout(() => {$("#taskoverlay .overlay-container").css({'margin-left': '0px'});},50);
     }
     openTaskViewOverlay(e, task) {
@@ -125,6 +126,7 @@ class TaskCard extends React.Component {
             <TaskViewOverlay task={task} />
         );
         ReactDOM.render(element, document.getElementById('overlay'));
+        $("body").css('overflow', 'hidden');
         setTimeout(() => {$("#taskviewoverlay .overlay-container").css({'margin-left': '0px'});},50);
     }
 }
@@ -256,6 +258,7 @@ class TaskOverlay extends React.Component {
     }
     closeTaskOverlay() {
         $("#taskoverlay .overlay-container").css({'margin-left': 'calc(100% + 40px)'});
+        $("body").css('overflow', 'unset');
         setTimeout(() => {ReactDOM.unmountComponentAtNode(document.getElementById('overlay'))},300);
     }
     imagePreview(e) {
@@ -321,6 +324,7 @@ class TaskViewOverlay extends React.Component {
     }
     closeTaskOverlay() {
         $("#taskviewoverlay .overlay-container").css({'margin-left': 'calc(100% + 40px)'});
+        $("body").css('overflow', 'unset');
         setTimeout(() => {ReactDOM.unmountComponentAtNode(document.getElementById('overlay'))},300);
     }
 }

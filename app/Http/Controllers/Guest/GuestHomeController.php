@@ -21,4 +21,9 @@ class GuestHomeController extends Controller
     {
         return view('guest/home/home');
     }
+
+    public function byron()
+    {
+        return view('guest/byron/byron');
+    }
 }

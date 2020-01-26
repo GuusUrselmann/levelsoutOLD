@@ -46108,6 +46108,7 @@ function (_React$Component2) {
         task: task
       });
       react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(element, document.getElementById('overlay'));
+      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'hidden');
       setTimeout(function () {
         jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskoverlay .overlay-container").css({
           'margin-left': '0px'
@@ -46121,6 +46122,7 @@ function (_React$Component2) {
         task: task
       });
       react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(element, document.getElementById('overlay'));
+      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'hidden');
       setTimeout(function () {
         jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskviewoverlay .overlay-container").css({
           'margin-left': '0px'
@@ -46346,6 +46348,7 @@ function (_React$Component4) {
       jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskoverlay .overlay-container").css({
         'margin-left': 'calc(100% + 40px)'
       });
+      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'unset');
       setTimeout(function () {
         react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(document.getElementById('overlay'));
       }, 300);
@@ -46443,6 +46446,7 @@ function (_React$Component5) {
       jquery__WEBPACK_IMPORTED_MODULE_2___default()("#taskviewoverlay .overlay-container").css({
         'margin-left': 'calc(100% + 40px)'
       });
+      jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").css('overflow', 'unset');
       setTimeout(function () {
         react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(document.getElementById('overlay'));
       }, 300);

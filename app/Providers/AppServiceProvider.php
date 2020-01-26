@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         include(app_path().'/Helpers/themeHelper.php');
         include(app_path().'/Helpers/guestHelper.php');
+        include(app_path().'/Helpers/adminHelper.php');
         include(app_path().'/Helpers/appHelper.php');
 
         view()->composer('layouts.guest.header', function ($view) {
@@ -33,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
         });
         view()->composer('layouts.app.header', function ($view) {
             $menu = menu_app_main();
+            $view->with('menu', $menu);
+        });
+        view()->composer('layouts.admin.sidebar', function ($view) {
+            $menu = menu_admin_sidebar();
             $view->with('menu', $menu);
         });
     }

@@ -45,7 +45,7 @@ class AppHomeController extends Controller
         TaskSubmission::create([
             'status' => 'open',
             'note' => $request->input('task_note')?$request->input('task_note'):'',
-            'image_path' => url('images/submissions/'.$task->id.'/'.$image_file_name.$image_file_extention),
+            'image_path' => 'images/submissions/'.$task->id.'/'.$image_file_name.$image_file_extention,
             'task_id' => $task->id,
             'user_id' => Auth::user()->id
         ]);

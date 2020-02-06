@@ -15,6 +15,12 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('title');
+            $table->text('answers')->nullable();
+            $table->enum('answer_type', ['text', 'select', 'multiple', 'num', 'date']);
+            $table->integer('level_min')->nullable();
+            $table->string('background_image')->nullable();
             $table->timestamps();
         });
     }

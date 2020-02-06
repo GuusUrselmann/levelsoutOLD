@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -45818,10 +45818,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/AppHomeControl.jsx":
-/*!*****************************************!*\
-  !*** ./resources/js/AppHomeControl.jsx ***!
-  \*****************************************/
+/***/ "./resources/js/AppQuestionsControl.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/AppQuestionsControl.jsx ***!
+  \**********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -45838,7 +45838,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AppHome_jsx__WEBPACK_IMPORTED_MODULE_3__["Profile"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AppHome_jsx__WEBPACK_IMPORTED_MODULE_3__["TaskActivity"], null)), document.getElementById('root'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AppHome_jsx__WEBPACK_IMPORTED_MODULE_3__["Questions"], null)), document.getElementById('root'));
 
 /***/ }),
 
@@ -46660,14 +46660,14 @@ function (_React$Component7) {
 
 /***/ }),
 
-/***/ 5:
-/*!***********************************************!*\
-  !*** multi ./resources/js/AppHomeControl.jsx ***!
-  \***********************************************/
+/***/ 4:
+/*!****************************************************!*\
+  !*** multi ./resources/js/AppQuestionsControl.jsx ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\js\AppHomeControl.jsx */"./resources/js/AppHomeControl.jsx");
+module.exports = __webpack_require__(/*! C:\wamp64\www\levelsout\resources\js\AppQuestionsControl.jsx */"./resources/js/AppQuestionsControl.jsx");
 
 
 /***/ })

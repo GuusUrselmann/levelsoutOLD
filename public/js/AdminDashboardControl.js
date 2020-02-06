@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -45833,12 +45833,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Admin_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Admin.jsx */ "./resources/js/components/Admin.jsx");
+/* harmony import */ var _components_Admin_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Admin.jsx */ "./resources/js/components/Admin.jsx");
 
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Admin_jsx__WEBPACK_IMPORTED_MODULE_4__["Submissions"], null), document.getElementById('root'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Admin_jsx__WEBPACK_IMPORTED_MODULE_3__["Submissions"], null), document.getElementById('root'));
 
 /***/ }),
 
@@ -46163,7 +46163,7 @@ function (_React$Component2) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!******************************************************!*\
   !*** multi ./resources/js/AdminDashboardControl.jsx ***!
   \******************************************************/

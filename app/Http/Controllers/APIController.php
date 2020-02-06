@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Task;
 use App\Level;
 use App\TaskSubmission;
+use App\Question;
 
 class APIController extends Controller
 {
@@ -72,6 +73,13 @@ class APIController extends Controller
                 'status_report' => 'your submission was denied because: ...'
             ]);
         }
+    }
 
+    public function appQuestions(Request $request) {
+        $questions = Auth::user()->getQuestions();
+        $data = [
+            'questions' => $questions
+        ];
+        return $data;
     }
 }

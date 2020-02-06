@@ -17,14 +17,14 @@ class TasksTableSeeder extends Seeder
             'description' => 'Upload an image of you and a stranger sharing a drink to confirm you\'ve completed the task.',
             'type' => 'image',
             'level_min' => 1,
-            'image_path' => 'http://localhost/levelsout/public/images/Oshi.jpg'
+            'image_path' => '/images/Oshi.jpg'
         ]);
         App\Task::create([
             'title' => 'Donate a sandwich to a homeless person.',
             'description' => 'Upload an image of you giving a sandwich to a homeless person to confirm you\'ve completed the task.',
             'type' => 'image',
             'level_min' => 2,
-            'image_path' => 'http://localhost/levelsout/public/images/Oshi.jpg'
+            'image_path' => '/images/Oshi.jpg'
         ]);
     }
 }

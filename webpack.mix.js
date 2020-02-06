@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.react('resources/js/app.jsx', 'public/js')
+    .react('resources/js/AppQuestionsControl.jsx', 'public/js')
     .react('resources/js/AppHomeControl.jsx', 'public/js')
     .react('resources/js/GuestHomeControl.jsx', 'public/js')
     .react('resources/js/AdminDashboardControl.jsx', 'public/js')

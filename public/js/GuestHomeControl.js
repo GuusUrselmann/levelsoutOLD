@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -45846,7 +45846,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 /*!*********************************************!*\
   !*** ./resources/js/components/AppHome.jsx ***!
   \*********************************************/
-/*! exports provided: Profile, TaskCard, TaskActivity */
+/*! exports provided: Profile, TaskCard, TaskActivity, Questions */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45854,6 +45854,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Profile", function() { return Profile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskCard", function() { return TaskCard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskActivity", function() { return TaskActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Questions", function() { return Questions; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -46236,7 +46237,6 @@ function (_React$Component3) {
       tabBar.css({
         "margin-left": this.state.tabCurrent * (100 / 2) + "%"
       });
-      console.log(this.state.tabCurrent);
     }
   }]);
 
@@ -46298,7 +46298,7 @@ function (_React$Component4) {
       }, this.props.task.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "task-thumbnail background-cover",
         style: {
-          backgroundImage: "url(".concat(this.props.task.image_path)
+          backgroundImage: "url(".concat(url() + this.props.task.image_path)
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "task-description"
@@ -46419,7 +46419,7 @@ function (_React$Component5) {
       }, this.props.task.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "task-thumbnail background-cover",
         style: {
-          backgroundImage: "url(".concat(this.props.task.image_path)
+          backgroundImage: "url(".concat(url() + this.props.task.image_path)
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "task-description"
@@ -46456,11 +46456,211 @@ function (_React$Component5) {
   return TaskViewOverlay;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
+var Questions =
+/*#__PURE__*/
+function (_React$Component6) {
+  _inherits(Questions, _React$Component6);
+
+  function Questions(props) {
+    var _this9;
+
+    _classCallCheck(this, Questions);
+
+    _this9 = _possibleConstructorReturn(this, _getPrototypeOf(Questions).call(this, props));
+    _this9.state = {
+      questionCurrent: 0,
+      questions: []
+    };
+    return _this9;
+  }
+
+  _createClass(Questions, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this10 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post(url() + '/api/appquestions', {
+        headers: {
+          'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_2___default()('meta[name="csrf-token"]').attr('content')
+        }
+      }).then(function (response) {
+        _this10.setState({
+          questions: response.data.questions
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+      this.setState({
+        isLoading: false
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var questionsList = this.state.questions.map(function (question) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(QuestionCard, {
+          key: question.id,
+          question: question
+        });
+      });
+      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "block questions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "question-empty"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "empty-message"
+      }, "You currently don't have any open questions.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "questions-overlay"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "questions-container",
+        id: "questionscontainer",
+        style: {
+          width: this.state.questions.length * 100 + "%"
+        }
+      }, questionsList)));
+      return element;
+    }
+  }, {
+    key: "switchQuestion",
+    value: function switchQuestion() {
+      var container = jquery__WEBPACK_IMPORTED_MODULE_2___default()('#questionscontainer');
+    }
+  }]);
+
+  return Questions;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var QuestionCard =
+/*#__PURE__*/
+function (_React$Component7) {
+  _inherits(QuestionCard, _React$Component7);
+
+  function QuestionCard(props) {
+    var _this11;
+
+    _classCallCheck(this, QuestionCard);
+
+    _this11 = _possibleConstructorReturn(this, _getPrototypeOf(QuestionCard).call(this, props));
+    _this11.state = {
+      answers: []
+    };
+    return _this11;
+  }
+
+  _createClass(QuestionCard, [{
+    key: "render",
+    value: function render() {
+      var _this12 = this;
+
+      var question = this.props.question;
+      var answers = '';
+
+      if (question.answer_type == 'select' || question.answer_type == 'multiple') {
+        var a = [];
+        var res = question.answers.split(',');
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()(res).each(function (i, ans) {
+          a.push(ans.split(':'));
+        });
+        var answersList = a.map(function (answer) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "select-option",
+            key: answer
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "select-option-inner",
+            "data-accessor": answer[1],
+            onClick: function onClick(e) {
+              _this12.compileResults(e, answer[1]);
+            }
+          }, answer[0]));
+        });
+        answers = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          method: "POST",
+          action: "",
+          className: "form"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "hidden",
+          name: "question-answer",
+          className: "select-hidden",
+          id: "answerinput"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "answers"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "select-field"
+        }, answersList)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "answer-submit"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "submit-button",
+          type: "submit",
+          name: "answer_submit",
+          disabled: true,
+          id: "answersubmit"
+        }, "LET'S GO!")));
+      }
+
+      var element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "question-card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-inner"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "question-title"
+      }, question.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "question-image background-cover",
+        style: {
+          backgroundImage: "url(".concat(url() + question.background_image)
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "question-answers"
+      }, answers)));
+      return element;
+    }
+  }, {
+    key: "compileResults",
+    value: function compileResults(e, answer) {
+      var input = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#answerinput");
+      var question = this.props.question;
+
+      if (question.answer_type == 'select') {
+        var form = jquery__WEBPACK_IMPORTED_MODULE_2___default()(e.target.closest('.question-card'));
+        form.find('.select-option-inner').removeClass('selected');
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()(e.target).addClass('selected');
+        form.find('#answerinput').val(answer);
+
+        if (form.find('#answerinput').val()) {
+          form.find('#answersubmit').attr('disabled', false);
+          return;
+        }
+
+        form.find('#answersubmit').attr('disabled', true);
+      } else if (question.answer_type == 'multiple') {
+        var form = jquery__WEBPACK_IMPORTED_MODULE_2___default()(e.target.closest('.question-card'));
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()(e.target).toggleClass('selected');
+        console.log(form.find('.select-option-inner.selected'));
+        var answer = '';
+        form.find('.select-option-inner.selected').each(function (i, ans) {
+          answer += jquery__WEBPACK_IMPORTED_MODULE_2___default()(ans).data('accessor') + ',';
+        });
+        answer = answer.slice(0, -1);
+        form.find('#answerinput').val(answer);
+
+        if (form.find('#answerinput').val()) {
+          form.find('#answersubmit').attr('disabled', false);
+          return;
+        }
+
+        form.find('#answersubmit').attr('disabled', true);
+      } // TODO: create other question types
+
+    }
+  }]);
+
+  return QuestionCard;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
 
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!*************************************************!*\
   !*** multi ./resources/js/GuestHomeControl.jsx ***!
   \*************************************************/

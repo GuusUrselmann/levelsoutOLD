@@ -195,7 +195,6 @@ class TaskActivity extends React.Component {
         this.state.tabCurrent = tabTarget;
         slider.css({"margin-left": -(this.state.tabCurrent * 100)+"%"});
         tabBar.css({"margin-left": (this.state.tabCurrent * (100/2))+"%"});
-        console.log(this.state.tabCurrent);
     }
 }
 
@@ -221,7 +220,7 @@ class TaskOverlay extends React.Component {
                                     <div className="task-title">
                                         {this.props.task.title}
                                     </div>
-                                    <div className="task-thumbnail background-cover" style={{backgroundImage: `url(${this.props.task.image_path}`}}>
+                                    <div className="task-thumbnail background-cover" style={{backgroundImage: `url(${url()+this.props.task.image_path}`}}>
                                     </div>
                                     <div className="task-description">
                                         {this.props.task.description}
@@ -297,7 +296,7 @@ class TaskViewOverlay extends React.Component {
                                 <div className="task-title">
                                     {this.props.task.title}
                                 </div>
-                                <div className="task-thumbnail background-cover" style={{backgroundImage: `url(${this.props.task.image_path}`}}>
+                                <div className="task-thumbnail background-cover" style={{backgroundImage: `url(${url()+this.props.task.image_path}`}}>
                                 </div>
                                 <div className="task-description">
                                     {this.props.task.description}
@@ -329,6 +328,140 @@ class TaskViewOverlay extends React.Component {
     }
 }
 
+class Questions extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            questionCurrent: 0,
+            questions: []
+        };
+    }
+    componentDidMount() {
+        Axios.post(url()+'/api/appquestions', {
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        })
+        .then(response => {
+            this.setState({questions: response.data.questions});
+        })
+        .catch(error => {
+            console.log(error);
+       });
+       this.setState({isLoading: false});
+    }
+    render() {
+        const questionsList = this.state.questions.map((question) =>
+            <QuestionCard key={question.id} question={question} />
+        );
+        const element = (
+            <div className="block questions">
+                <div className="question-empty">
+                    <div className="empty-message">
+                        You currently don't have any open questions.
+                    </div>
+                </div>
+                <div className="questions-overlay">
+                    <div className="questions-container" id="questionscontainer" style={{width: (this.state.questions.length * 100)+"%"}}>
+                        {questionsList}
+                    </div>
+                </div>
+            </div>
+        );
+        return element;
+    }
+    switchQuestion() {
+        var container = $('#questionscontainer');
+    }
+}
+
+class QuestionCard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            answers: []
+        };
+    }
+    render() {
+        var question = this.props.question;
+        var answers = '';
+        if(question.answer_type == 'select' || question.answer_type == 'multiple') {
+            var a = [];
+            var res = question.answers.split(',');
+            $(res).each(function(i, ans) {
+                a.push(ans.split(':'));
+            });
+            const answersList = a.map((answer) =>
+                <div className="select-option" key={answer}>
+                    <div className="select-option-inner" data-accessor={answer[1]} onClick={(e) => {this.compileResults(e, answer[1])}}>
+                        {answer[0]}
+                    </div>
+                </div>
+            );
+            answers = (
+                <form method="POST" action="" className="form">
+                    <input type="hidden" name="question-answer" className="select-hidden" id="answerinput"/>
+                    <div className="answers">
+                        <div className="select-field">
+                            {answersList}
+                        </div>
+                    </div>
+                    <div className="answer-submit">
+                        <button className="submit-button" type="submit" name="answer_submit" disabled id="answersubmit">
+                            LET'S GO!
+                        </button>
+                    </div>
+                </form>
+            );
+        }
+        const element = (
+            <div className="question-card">
+                <div className="card-inner">
+                    <div className="question-title">
+                        {question.title}
+                    </div>
+                    <div className="question-image background-cover" style={{backgroundImage: `url(${url()+question.background_image}`}}>
+                    </div>
+                    <div className="question-answers">
+                        {answers}
+                    </div>
+                </div>
+            </div>
+        );
+        return element;
+    }
+    compileResults(e, answer) {
+        var input = $("#answerinput");
+        var question = this.props.question;
+        if(question.answer_type == 'select') {
+            var form = $(e.target.closest('.question-card'));
+            form.find('.select-option-inner').removeClass('selected');
+            $(e.target).addClass('selected');
+            form.find('#answerinput').val(answer);
+            if(form.find('#answerinput').val()) {
+                form.find('#answersubmit').attr('disabled', false);
+                return;
+            }
+            form.find('#answersubmit').attr('disabled', true);
+        }
+        else if(question.answer_type == 'multiple') {
+            var form = $(e.target.closest('.question-card'));
+            $(e.target).toggleClass('selected');
+            console.log(form.find('.select-option-inner.selected'));
+            var answer = '';
+            form.find('.select-option-inner.selected').each((i, ans) => {
+                answer += $(ans).data('accessor')+',';
+            });
+            answer = answer.slice(0, -1);
+            form.find('#answerinput').val(answer);
+            if(form.find('#answerinput').val()) {
+                form.find('#answersubmit').attr('disabled', false);
+                return;
+            }
+            form.find('#answersubmit').attr('disabled', true);
+        }
+        // TODO: create other question types
+    }
+}
 
 
-export {Profile, TaskCard, TaskActivity};
+
+export {Profile, TaskCard, TaskActivity, Questions};

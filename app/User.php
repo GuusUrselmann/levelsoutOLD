@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Level;
+use App\Question;
+use App\UserInfo;
 
 class User extends Authenticatable
 {
@@ -40,5 +42,16 @@ class User extends Authenticatable
 
     public function level() {
         return $this->belongsTo(Level::class)->first()->level;
+    }
+
+    public function getQuestions() {
+        $ids = [];
+        foreach(Question::all() as $question) {
+
+            if(!UserInfo::where('user_id', $this->id)->where('question_id', $question->id)->count()) {
+                $ids[] = $question->id;
+            }
+        }
+        return Question::whereIn('id', $ids)->get();
     }
 }

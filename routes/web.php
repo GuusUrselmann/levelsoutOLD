@@ -22,6 +22,7 @@ Route::get('/byron', 'Guest\GuestHomeController@byron');
 Route::group(['prefix'=>'/app'], function () {
     Route::get('/', 'App\AppHomeController@home');
     Route::get('/home', 'App\AppHomeController@home');
+    Route::get('/questions', 'App\AppQuestionsController@questions');
     Route::post('/tasksubmit', 'App\AppHomeController@taskSubmit');
 
 });
@@ -40,6 +41,7 @@ Route::group(['prefix'=>'/admin'], function() {
 Route::group(['prefix'=>'/api'], function () {
     Route::post('/homeprofile', 'APIController@homeProfile');
     Route::post('/hometasks', 'APIController@homeTasks');
+    Route::post('/appquestions', 'APIController@appQuestions');
     Route::post('/admindashboardsubmissions', 'APIController@adminDashboardSubmissions');
     Route::post('/admindashboardsubmissionssubmit', 'APIController@adminDashboardSubmissionsSubmit');
 });

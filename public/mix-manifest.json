@@ -12,6 +12,7 @@
     "/css/blocks_admin.css": "/css/blocks_admin.css",
     "/css/grid_admin.css": "/css/grid_admin.css",
     "/js/AppHomeControl.js": "/js/AppHomeControl.js",
+    "/js/AppQuestionsControl.js": "/js/AppQuestionsControl.js",
     "/js/GuestBehaviour.js": "/js/GuestBehaviour.js",
     "/js/GuestHomeControl.js": "/js/GuestHomeControl.js",
     "/js/app.js": "/js/app.js"

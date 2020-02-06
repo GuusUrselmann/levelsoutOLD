@@ -358,3 +358,97 @@
         }
     }
 }
+/*Questions*/
+.block.questions {
+    width: 100%;
+    .question-empty {
+        width: 100vw;
+        height: calc(100vh - 70px);
+        padding-top: 20vh;
+        .empty-message {
+            width: 80%;
+            line-height: 28px;
+            font-size: 24px;
+            margin: auto;
+            text-align: center;
+        }
+    }
+    .questions-overlay {
+        width: 100vw;
+        height: calc(100vh - 70px);
+        position: absolute;
+        top: 45px;
+        .questions-container {
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow: hidden;
+            transition: margin-left .2s ease-in-out;
+            .question-card {
+                width: 100vw;
+                height: 100%;
+                padding: 10px 15px;
+                float: left;
+                .card-inner {
+                    width: 100%;
+                    height: 100%;
+                    padding: 10px;
+                    background-color: $theme-blue;
+                    box-shadow: 0 5px 10px -3px #575757;
+                    border-radius: 10px;
+                    .question-title {
+                        width: 100%;
+                        color: #fff;
+                        font-size: 28px;
+                        padding: 5px 15px;
+                        padding-top: 15px;
+                        text-align: center;
+                        margin-bottom: 25px;
+                    }
+                    .question-image {
+                        width: 90%;
+                        margin: auto;
+                        height: 180px;
+                        border-radius: 5px;
+                        box-shadow: 0 5px 10px -3px #324c71;
+                    }
+                    .question-answers {
+                        width: 100%;
+                        padding: 15px 10px;
+                        .form {
+                            width: 100%;
+                            .answers {
+                                width: 100%;
+                                .select-field {
+                                    width: 100%;
+                                    padding: 10px 20px;
+                                    .select-option {
+                                        width: 100%;
+                                        background-color: $grey-med;
+                                        margin-bottom: 25px;
+                                        padding-bottom: 7px;
+                                        border-radius: 5px;
+                                        .select-option-inner {
+                                            padding: 10px;
+                                            background-color: $grey-med-cover;
+                                            color: #fff;
+                                            text-align: center;
+                                            border-radius: 5px;
+                                            line-height: 25px;
+                                            transition: margin-bottom .2s ease-in-out, margin-top .2s ease-in-out;
+                                            &.selected {
+                                                background-color: $theme-orange;
+                                                margin-bottom: -5px;
+                                                margin-top: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

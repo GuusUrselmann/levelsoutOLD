@@ -27,6 +27,13 @@
                     </li>
                 @endforeach
                     <li class="menu-item">
+                        <a href="{{url('/app/questions')}}">
+                            <div class="item-title">
+                                <span style="display: block; float: left;">questions</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                              <div class="item-title">
                                  <span style="display: block; float: left;">logout</span>
